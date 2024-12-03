@@ -8,12 +8,15 @@ const Header = () => {
     console.log(name);
     const links = <>
     <li> <NavLink to='/'>Home</NavLink></li>
+    <li> <NavLink to='/allReviews'>All Reviews</NavLink></li>
+    <li> <NavLink to='/addReview'>Add Review</NavLink></li>
+    <li> <NavLink to='/myReviews'>My Reviews</NavLink></li>
+    <li> <NavLink to='/gameWatchList'>Game WatchList</NavLink></li>
+   
     <li> <NavLink to='/users'>Users</NavLink></li>
-    <li> <NavLink to='/login'>Login</NavLink></li>
-    <li> <NavLink to='/signup'>SignUP</NavLink></li>
     </>
     return (
-      <div className="navbar bg-base-100">
+      <div className="navbar  container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -36,18 +39,19 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-             {links}
+              {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl">GameScope</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-           {links}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <div className="flex items-center justify-center gap-4">
+             <button className="btn btn-primary"> <NavLink to='/login'>Login</NavLink></button>
+             <button className="btn btn-primary"> <NavLink to='/signup'>Register</NavLink></button>
+          </div>
         </div>
       </div>
     );
