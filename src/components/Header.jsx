@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 
 
 const Header = () => {
-    const  {name}  = useContext(AuthContext);
-    console.log(name);
+    const  {users}  = useContext(AuthContext);
+    console.log(users);
     const links = <>
     <li> <NavLink to='/'>Home</NavLink></li>
     <li> <NavLink to='/allReviews'>All Reviews</NavLink></li>
@@ -48,10 +48,23 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <div className="flex items-center justify-center gap-4">
-             <button className="btn btn-primary"> <NavLink to='/login'>Login</NavLink></button>
-             <button className="btn btn-primary"> <NavLink to='/signup'>Register</NavLink></button>
-          </div>
+          {users?.displayName ? (
+            <div>
+              <img src="" alt="" />
+              <button>LogOut</button>
+            </div>
+          ) : (
+            <div className="flex items-center justify-center gap-4">
+              <button className="btn btn-primary">
+                {" "}
+                <NavLink to="/login">Login</NavLink>
+              </button>
+              <button className="btn btn-primary">
+                {" "}
+                <NavLink to="/signup">Register</NavLink>
+              </button>
+            </div>
+          )}
         </div>
       </div>
     );
