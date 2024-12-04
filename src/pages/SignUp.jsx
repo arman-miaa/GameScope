@@ -4,7 +4,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 
 const SignUp = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, setUsers, updateUserProfile } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -25,10 +25,20 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        toast.success("SignUp successfully");
         const createdAt = result?.user?.metadata?.creationTime;
-        const newPerson = { name,photo, email, createdAt };
-
+        const newPerson = { name, photo, email, createdAt };
+        
+        updateUserProfile({ displayName: name, photoURL: photo })
+          .then(() => {
+          
+          setUsers({ ...result.user, displayName: name, photoURL: photo });
+          toast.success("SignUp successfully");
+          
+        })
+          .catch(error => {
+            toast.error('faild to create new user')
+            
+        })
         fetch("http://localhost:5000/person", {
           method: "POST",
           headers: {

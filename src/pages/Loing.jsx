@@ -4,7 +4,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Loing = () => {
-  const { signInUser, sigInWithGoogle } = useContext(AuthContext);
+  const { signInUser, sigInWithGoogle, setUsers } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,7 +14,8 @@ const Loing = () => {
     console.log(email, password);
     signInUser(email, password)
       .then((result) => {
-      console.log(result.user);
+        setUsers(result.user);
+        console.log(result.user);
 
       // last login time
       const lastLogInTime = result?.user?.metadata?.lastSignInTime;

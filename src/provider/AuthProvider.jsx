@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import auth from '../firebase/firebase.init';
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, ProviderId, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, ProviderId, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import Loading from '../pages/Loading';
 
 
@@ -26,8 +26,9 @@ const AuthProvider = ({ children }) => {
     // get currect user
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currctUser) => {
-            setUsers(currctUser)
+        const unsubscribe = onAuthStateChanged(auth, (currectUser) => {
+            setUsers(currectUser)
+            console.log(currectUser);
             setLoader(false)
         })
         return () => {
@@ -35,6 +36,17 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
     // console.log(users);
+
+    // logout suer
+    const logOutUser = () => {
+        return signOut(auth)
+
+    }
+
+    const updateUserProfile = (updateData) => {
+        console.log(updateData);
+        return updateProfile(auth.currentUser, updateData)
+    }
     
     const authInfo = {
       name: "arman mia",
@@ -44,6 +56,8 @@ const AuthProvider = ({ children }) => {
       createUser,
       signInUser,
       sigInWithGoogle,
+      logOutUser,
+      updateUserProfile,
     };
     return (
         <div>
