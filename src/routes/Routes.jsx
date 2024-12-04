@@ -10,6 +10,7 @@ import AllReviews from "../Private/AllReviews";
 import AddReview from "../Private/AddReview";
 import MyReviews from "../Private/MyReviews";
 import GameWatchList from "../Private/GameWatchList";
+import ReviewsDetails from "../Private/ReviewsDetails";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,12 @@ const router = createBrowserRouter([
       {
         path: "addReview",
         element: <AddReview></AddReview>,
+      },
+      {
+        path: "reviewsDetails/:id",
+        loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`),
+        element: <ReviewsDetails></ReviewsDetails>,
+        
       },
       {
         path: "myReviews",

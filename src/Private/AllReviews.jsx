@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllReviews = () => {
   const initialReviews = useLoaderData();
@@ -76,7 +76,9 @@ const AllReviews = () => {
                 <p>Publishing year: {review.year}</p>
                 <p>Rating: {review.rating}/10⭐</p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Explore Details</button>
+                  <Link to={`/reviewsDetails/${review._id}`}>
+                    <button className="btn btn-primary">Explore Details</button>
+                  </Link>
                 </div>
               </div>
             </div>
