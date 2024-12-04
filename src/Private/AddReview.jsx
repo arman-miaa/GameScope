@@ -1,6 +1,9 @@
 import { toast } from "react-toastify";
+import { AuthContext } from "../provider/AuthProvider";
+import { useContext } from "react";
 
 const AddReview = () => {
+    const { users } = useContext(AuthContext);
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -177,7 +180,7 @@ const AddReview = () => {
               type="email"
               id="userEmail"
               name="email"
-              value="user@example.com" 
+              value={users?.email || 'exampl@gmail.com'} 
               readOnly
               className="w-full border border-gray-500 bg-[#1D1D1D] text-gray-400 rounded-lg p-2 cursor-not-allowed"
             />
@@ -195,7 +198,7 @@ const AddReview = () => {
               type="text"
               id="userName"
               name="name"
-              defaultValue="Arman Mia"
+              defaultValue={users?.name || 'user name'}
               readOnly
               className="w-full border border-gray-500 bg-[#1D1D1D] text-gray-400 rounded-lg p-2 cursor-not-allowed"
             />

@@ -6,7 +6,7 @@ import { Tooltip } from "react-tooltip";
 
 const Header = () => {
     const { users, logOutUser } = useContext(AuthContext);
-    console.log(users);
+    // console.log(users);
   // console.log(users.photoURL);
   
   const handleLogOutUser = () => {
