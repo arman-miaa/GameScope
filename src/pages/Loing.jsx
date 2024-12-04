@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Loing = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, sigInWithGoogle } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -31,6 +32,16 @@ const Loing = () => {
         });
     });
   };
+
+  const handleSignInUserWithGoogle = () => {
+    console.log('clicked on google');
+    sigInWithGoogle()
+      .then(result => {
+        console.log(result.user);
+        toast.success('loggin success')
+    })
+  };
+
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col ">
@@ -69,12 +80,15 @@ const Loing = () => {
               />
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
+                 LogIn With Google
                 </a>
               </label>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
+              <div className="mx-auto mt-2">
+                <h3 onClick={handleSignInUserWithGoogle} className="btn border-2 border-blue-500">LogIn With Google</h3>
+              </div>
               <p>
                 Don't Have You An Account{" "}
                 <Link to="/signup" className="text-red-500 underline">
