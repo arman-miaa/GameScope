@@ -9,15 +9,25 @@ const SignUp = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
+    const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, password);
+
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+  toast.error(
+    "Password must be at least 6 characters long, include one uppercase letter, and one lowercase letter."
+      );
+      return;
+}
+
+    console.log(name,photo, email, password);
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
         toast.success("SignUp successfully");
         const createdAt = result?.user?.metadata?.creationTime;
-        const newPerson = { name, email, createdAt };
+        const newPerson = { name,photo, email, createdAt };
 
         fetch("http://localhost:5000/person", {
           method: "POST",
@@ -56,6 +66,17 @@ const SignUp = () => {
                 type="text"
                 name="name"
                 placeholder="email"
+                className="input input-bordered"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">PhotoURL</span>
+              </label>
+              <input
+                type="text"
+                name="photo"
+                placeholder="Photo URL"
                 className="input input-bordered"
               />
             </div>
