@@ -12,7 +12,8 @@ const Loing = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    signInUser(email, password).then((result) => {
+    signInUser(email, password)
+      .then((result) => {
       console.log(result.user);
 
       // last login time
@@ -29,8 +30,12 @@ const Loing = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-        });
-    });
+        })
+      })
+      .catch(error => {
+      toast.error('Invalid email or password please try again');
+      });
+    
   };
 
   const handleSignInUserWithGoogle = () => {
