@@ -3,7 +3,8 @@ import { AuthContext } from "../provider/AuthProvider";
 import { useContext } from "react";
 
 const AddReview = () => {
-    const { users } = useContext(AuthContext);
+  const { users } = useContext(AuthContext);
+  // console.log(users.displayName);
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -69,6 +70,7 @@ const AddReview = () => {
               type="url"
               id="coverImage"
               name="image"
+              required
               placeholder="Enter image URL"
               className="w-full border border-gray-500 bg-[#1D1D1D] text-white rounded-lg p-2 focus:border-[#ADFF00] focus:ring-[#ADFF00]"
             />
@@ -86,6 +88,7 @@ const AddReview = () => {
               type="text"
               id="gameTitle"
               name="title"
+              required
               placeholder="Enter game title"
               className="w-full border border-gray-500 bg-[#1D1D1D] text-white rounded-lg p-2 focus:border-[#ADFF00] focus:ring-[#ADFF00]"
             />
@@ -103,6 +106,7 @@ const AddReview = () => {
               id="reviewDescription"
               name="review"
               rows="4"
+              required
               placeholder="Write your review here..."
               className="w-full border border-gray-500 bg-[#1D1D1D] text-white rounded-lg p-2 focus:border-[#ADFF00] focus:ring-[#ADFF00]"
             ></textarea>
@@ -121,7 +125,8 @@ const AddReview = () => {
               id="rating"
               name="rating"
               min="1"
-                          max="10"
+              max="10"
+              required
                           
               placeholder="Enter rating (1-10)"
               className="w-full border border-gray-500 bg-[#1D1D1D] text-white rounded-lg p-2 focus:border-[#ADFF00] focus:ring-[#ADFF00]"
@@ -142,6 +147,7 @@ const AddReview = () => {
               name="year"
               min="1990"
               max="2024"
+              required
               placeholder="Enter year (e.g., 2024)"
               className="w-full border border-gray-500 bg-[#1D1D1D] text-white rounded-lg p-2 focus:border-[#ADFF00] focus:ring-[#ADFF00]"
             />
@@ -198,7 +204,7 @@ const AddReview = () => {
               type="text"
               id="userName"
               name="name"
-              defaultValue={users?.name || 'user name'}
+              defaultValue={users?.displayName || 'user name'}
               readOnly
               className="w-full border border-gray-500 bg-[#1D1D1D] text-gray-400 rounded-lg p-2 cursor-not-allowed"
             />
