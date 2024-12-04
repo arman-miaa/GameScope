@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { NavLink } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 
 
 const Header = () => {
@@ -58,11 +59,14 @@ const Header = () => {
             <div className="flex items-center justify-center gap-4">
               <div>
                 <img
+                  data-tooltip-id="my-tooltip"
                   className="border-2 w-16 h-16 rounded-full"
                   src={users.photoURL}
                   alt=""
                 />
-                {/* <p>{users.displayName}</p> */}
+                <Tooltip id="my-tooltip">
+                  <p>{users.displayName}</p>
+                </Tooltip>
               </div>
               <button onClick={handleLogOutUser}>LogOut</button>
             </div>
