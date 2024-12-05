@@ -1,13 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyReviews = () => {
   const { users } = useContext(AuthContext);
   const [myReviews, setMyReviews] = useState([]);
 console.log(myReviews);
   useEffect(() => {
-    fetch(`http://localhost:5000/myreviews/${users?.uid}`)
+    fetch(`http://localhost:5000/myreviews/${users?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyReviews(data);
@@ -15,7 +16,7 @@ console.log(myReviews);
       .catch((error) => {
         console.error("Error fetching reviews:", error);
       });
-  }, [users?.uid]);
+  }, [users?.email]);
 
   const handleRemoveReview = (id) => {
     console.log('remove clicked', id);
@@ -47,6 +48,11 @@ console.log(myReviews);
            });
        }
      });
+    
+  }
+
+  const handleUpdateReview = (id) => {
+    console.log(id);
   }
 
   return (
@@ -97,13 +103,27 @@ console.log(myReviews);
                       />
                     </td>
                     <td className="px-4 py-3">{review.title}</td>
-                    <td className="px-4 py-3 hidden  md:flex mt-4">{review.genres}</td>
+                    <td className="px-4 py-3 hidden  md:flex mt-4">
+                      {review.genres}
+                    </td>
                     <td className="px-4 py-3">{review.rating}/10</td>
                     <td className="px-4 py-3 flex flex-col items-center  md:flex-row space-x-2 space-y-2 md:space-y-0">
-                      <button className="w-20 py-2 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600 shadow">
-                        Update
-                      </button>
-                      <button onClick={()=>{handleRemoveReview(review._id)}} className="w-20 py-2 text-sm bg-red-500 text-white rounded-lg hover:bg-red-600 shadow">
+                      <Link to={`/getReview/${review._id}`}>
+                        <button
+                          onClick={() => {
+                            handleUpdateReview(review._id);
+                          }}
+                          className="w-20 py-2 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600 shadow"
+                        >
+                          Update
+                        </button>
+                      </Link>
+                      <button
+                        onClick={() => {
+                          handleRemoveReview(review._id);
+                        }}
+                        className="w-20 py-2 text-sm bg-red-500 text-white rounded-lg hover:bg-red-600 shadow"
+                      >
                         Delete
                       </button>
                     </td>
