@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const MyReviews = () => {
   const { users } = useContext(AuthContext);
@@ -15,6 +16,38 @@ console.log(myReviews);
         console.error("Error fetching reviews:", error);
       });
   }, [users?.uid]);
+
+  const handleRemoveReview = (id) => {
+    console.log('remove clicked', id);
+     Swal.fire({
+       title: "Are you sure?",
+       text: "You won't be able to revert this!",
+       icon: "warning",
+       showCancelButton: true,
+       confirmButtonColor: "#3085d6",
+       cancelButtonColor: "#d33",
+       confirmButtonText: "Yes, delete it!",
+     }).then((result) => {
+       if (result.isConfirmed) {
+         fetch(`http://localhost:5000/deleteMyReview/${id}`, {
+           method: "DELETE",
+         })
+           .then((res) => res.json())
+           .then((data) => {
+             console.log(data);
+             if (data.deletedCount > 0) {
+               Swal.fire({
+                 title: "Deleted!",
+                 text: "Your file has been deleted.",
+                 icon: "success",
+               });
+             }
+             const remaining = myReviews.filter((myReview) => myReview._id !== id);
+             setMyReviews(remaining);
+           });
+       }
+     });
+  }
 
   return (
     <section className="bg-[#1D1D1D] min-h-screen">
@@ -64,13 +97,13 @@ console.log(myReviews);
                       />
                     </td>
                     <td className="px-4 py-3">{review.title}</td>
-                    <td className="px-4 py-3 hidden md:flex">{review.genres}</td>
+                    <td className="px-4 py-3 hidden  md:flex mt-4">{review.genres}</td>
                     <td className="px-4 py-3">{review.rating}/10</td>
                     <td className="px-4 py-3 flex flex-col items-center  md:flex-row space-x-2 space-y-2 md:space-y-0">
                       <button className="w-20 py-2 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600 shadow">
                         Update
                       </button>
-                      <button className="w-20 py-2 text-sm bg-red-500 text-white rounded-lg hover:bg-red-600 shadow">
+                      <button onClick={()=>{handleRemoveReview(review._id)}} className="w-20 py-2 text-sm bg-red-500 text-white rounded-lg hover:bg-red-600 shadow">
                         Delete
                       </button>
                     </td>
