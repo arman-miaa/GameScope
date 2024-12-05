@@ -170,8 +170,7 @@ const AddReview = () => {
               <option value="Action">Action</option>
               <option value="RPG">RPG</option>
               <option value="Adventure">Adventure</option>
-              <option value="Sandbox">Sandbox</option>
-              <option value="Horror">Horror</option>
+              
             </select>
           </div>
 

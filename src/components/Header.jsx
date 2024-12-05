@@ -17,7 +17,7 @@ const Header = () => {
     <li> <NavLink to='/'>Home</NavLink></li>
     <li> <NavLink to='/allReviews'>All Reviews</NavLink></li>
     <li> <NavLink to='/addReview'>Add Review</NavLink></li>
-    <li> <NavLink to='/reviewsDetails'>Reviews Details</NavLink></li>
+    {/* <li> <NavLink to='/reviewsDetails'>Reviews Details</NavLink></li> */}
     <li> <NavLink to='/myReviews'>My Reviews</NavLink></li>
     <li> <NavLink to='/gameWatchList'>Game WatchList</NavLink></li>
    
