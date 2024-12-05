@@ -26,7 +26,8 @@ const AddReview = () => {
             year,
             genres,
             email,
-            name,
+          name,
+            userId:users?.uid
         };
         console.log(newReview);
 
