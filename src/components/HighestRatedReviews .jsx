@@ -6,7 +6,9 @@ const HighestRatedReviews = () => {
   const [loading, setLoading] = useState(true); // Add a loading state
 
   useEffect(() => {
-    fetch("http://localhost:5000/highest-rated-reviews")
+    fetch(
+      "https://ph-assignment10-server-lilac.vercel.app/highest-rated-reviews"
+    )
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
@@ -29,21 +31,23 @@ const HighestRatedReviews = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 border-2 rounded-xl p-6">
             {reviews.map((review, index) => (
               <div key={index}>
-                <div className="card bg-base-100 flex border-2 shadow-xl p-6">
+                <div className="card bg-base-100 flex flex-col justify-between border-2 shadow-xl p-6 h-full">
                   <figure>
                     <img
-                      className="w-full h-[200px] object-fitt rounded-xl"
+                      className="w-full h-[200px] object-cover rounded-xl"
                       src={review.image}
-                      alt="Shoes"
+                      alt={review.title}
                     />
                   </figure>
-                  <div className="mt-4">
-                    <h2 className="   text-3xl ">{review.title}</h2>
-                    <p className=" text-2xl">Genres:{review.genres}</p>
-                    <p className=" text-2xl">Ragin: {review.rating} /10⭐</p>
-                    <div className="mt-6">
+                  <div className="flex flex-col flex-grow mt-4">
+                    <h2 className="text-3xl font-bold">{review.title}</h2>
+                    <p className="text-2xl mt-2">Genres: {review.genres}</p>
+                    <p className="text-2xl mt-2">
+                      Rating: {review.rating} / 10 ⭐
+                    </p>
+                    <div className="mt-auto">
                       <Link to={`/reviewsDetails/${review._id}`}>
-                        <button className="btn btn-primary w-full">
+                        <button className="btn btn-primary w-full mt-6">
                           Explore Details
                         </button>
                       </Link>

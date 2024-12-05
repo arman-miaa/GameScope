@@ -17,11 +17,9 @@ const Header = () => {
     <li> <NavLink to='/'>Home</NavLink></li>
     <li> <NavLink to='/allReviews'>All Reviews</NavLink></li>
     <li> <NavLink to='/addReview'>Add Review</NavLink></li>
-    {/* <li> <NavLink to='/reviewsDetails'>Reviews Details</NavLink></li> */}
     <li> <NavLink to='/myReviews'>My Reviews</NavLink></li>
-    <li> <NavLink to='/gameWatchList'>Game WatchList</NavLink></li>
+    <li> <NavLink to='/gameWatchList'>MyWatchList</NavLink></li>
    
-    <li> <NavLink to='/users'>Users</NavLink></li>
     </>
     return (
       <div className="navbar  container mx-auto">
@@ -66,7 +64,7 @@ const Header = () => {
                   alt=""
                 />
                 <Tooltip id="my-tooltip">
-                  <p>{users.displayName}</p>
+                  <p className="">{users.displayName}</p>
                 </Tooltip>
               </div>
               <button onClick={handleLogOutUser}>LogOut</button>

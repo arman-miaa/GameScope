@@ -15,31 +15,28 @@ const SignUp = () => {
 
     const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
     if (!passwordRegex.test(password)) {
-  toast.error(
-    "Password must be at least 6 characters long, include one uppercase letter, and one lowercase letter."
+      toast.error(
+        "Password must be at least 6 characters long, include one uppercase letter, and one lowercase letter."
       );
       return;
-}
+    }
 
-    console.log(name,photo, email, password);
+    console.log(name, photo, email, password);
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
         const createdAt = result?.user?.metadata?.creationTime;
         const newPerson = { name, photo, email, createdAt };
-        
+
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
-          
-          setUsers({ ...result.user, displayName: name, photoURL: photo });
-          toast.success("SignUp successfully");
-          
-        })
-          .catch(error => {
-            toast.error('faild to create new user')
-            
-        })
-        fetch("http://localhost:5000/person", {
+            setUsers({ ...result.user, displayName: name, photoURL: photo });
+            toast.success("SignUp successfully");
+          })
+          .catch((error) => {
+            toast.error("faild to create new user");
+          });
+        fetch("https://ph-assignment10-server-lilac.vercel.app/person", {
           method: "POST",
           headers: {
             "content-type": "application/json",

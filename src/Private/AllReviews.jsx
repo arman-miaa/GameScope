@@ -10,7 +10,7 @@ const AllReviews = () => {
   // Handle Sort (always descending)
   const handleSort = async () => {
     const response = await fetch(
-      `http://localhost:5000/reviews?sortField=${sortField}&genre=${genre}` // Send sortField and genre together
+      `https://ph-assignment10-server-lilac.vercel.app/reviews?sortField=${sortField}&genre=${genre}` // Send sortField and genre together
     );
     const sortedReviews = await response.json();
     setReviews(sortedReviews);
@@ -19,7 +19,7 @@ const AllReviews = () => {
   // Handle Filter
   const handleFilter = async () => {
     const response = await fetch(
-      `http://localhost:5000/reviews?genre=${genre}`
+      `https://ph-assignment10-server-lilac.vercel.app/reviews?genre=${genre}`
     );
     const filteredReviews = await response.json();
     setReviews(filteredReviews);

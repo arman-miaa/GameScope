@@ -5,48 +5,48 @@ import { useContext } from "react";
 const AddReview = () => {
   const { users } = useContext(AuthContext);
   // console.log(users.displayName);
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const image = form.image.value;
-        const title = form.title.value;
-        const review = form.review.value;
-        const rating = parseFloat(form.rating.value);
-        const year = form.year.value;
-        const genres = form.genres.value;
-        const email = form.email.value;
-        const name = form.name.value;
-        // console.log(image, title, review, rating, year, genres, email, name);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const image = form.image.value;
+    const title = form.title.value;
+    const review = form.review.value;
+    const rating = parseFloat(form.rating.value);
+    const year = form.year.value;
+    const genres = form.genres.value;
+    const email = form.email.value;
+    const name = form.name.value;
+    // console.log(image, title, review, rating, year, genres, email, name);
 
-        const newReview = {
-            image,
-            title,
-            review,
-            rating,
-            year,
-            genres,
-            email,
-          name,
-            userId:users?.uid
-        };
-        console.log(newReview);
+    const newReview = {
+      image,
+      title,
+      review,
+      rating,
+      year,
+      genres,
+      email,
+      name,
+      userId: users?.uid,
+    };
+    console.log(newReview);
 
-        fetch("http://localhost:5000/reviews", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(newReview)
-        })
-          .then(res => res.json())
-            .then(data => {
-              console.log(data);
-          toast.success('review added successfully')
-          })
-            .catch(error => {
-              console.log(error);
-          toast.error('failed to add review')
+    fetch("https://ph-assignment10-server-lilac.vercel.app/reviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newReview),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("review added successfully");
       })
+      .catch((error) => {
+        console.log(error);
+        toast.error("failed to add review");
+      });
   };
 
   return (
@@ -128,7 +128,6 @@ const AddReview = () => {
               min="1"
               max="10"
               required
-                          
               placeholder="Enter rating (1-10)"
               className="w-full border border-gray-500 bg-[#1D1D1D] text-white rounded-lg p-2 focus:border-[#ADFF00] focus:ring-[#ADFF00]"
             />
@@ -170,7 +169,6 @@ const AddReview = () => {
               <option value="Action">Action</option>
               <option value="RPG">RPG</option>
               <option value="Adventure">Adventure</option>
-              
             </select>
           </div>
 
@@ -186,7 +184,7 @@ const AddReview = () => {
               type="email"
               id="userEmail"
               name="email"
-              value={users?.email || 'exampl@gmail.com'} 
+              value={users?.email || "exampl@gmail.com"}
               readOnly
               className="w-full border border-gray-500 bg-[#1D1D1D] text-gray-400 rounded-lg p-2 cursor-not-allowed"
             />
@@ -204,7 +202,7 @@ const AddReview = () => {
               type="text"
               id="userName"
               name="name"
-              defaultValue={users?.displayName || 'user name'}
+              defaultValue={users?.displayName || "user name"}
               readOnly
               className="w-full border border-gray-500 bg-[#1D1D1D] text-gray-400 rounded-lg p-2 cursor-not-allowed"
             />

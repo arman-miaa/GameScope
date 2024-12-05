@@ -3,8 +3,8 @@ import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const ReviewsDetails = () => {
-    const { users } = useContext(AuthContext);
-    // console.log(users);
+  const { users } = useContext(AuthContext);
+  // console.log(users);
   const details = useLoaderData();
   const {
     image,
@@ -14,46 +14,42 @@ const ReviewsDetails = () => {
     genres,
     email,
     name: reviewer,
-    } = details;
-    // console.log(details);
-    
-    const loggedInUser = {
-        name: `${users.displayName}`,
-        email:`${users.email}`,
-    }
-    // console.log(loggedInUser);
-    
-    const handleWatchList = () => {
-        // console.log(details);
-            const watchlistData = {
-              reviewId: details._id,
-              title,
-              image,
-              rating,
-              genres,
-              addedBy: loggedInUser.name,
-              userEmail: loggedInUser.email,
-             
-        };
+  } = details;
+  // console.log(details);
 
-        fetch("http://localhost:5000/watchlist", {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(watchlistData)
-        })
-            .then(res => res.json())
-            .then(data => {
-            console.log('added watchlist successfully',data);
-            })
-            .catch(error => {
-            console.log('not added watchlist on database', error);
-        })
-        
-    }
-    
-    
+  const loggedInUser = {
+    name: `${users.displayName}`,
+    email: `${users.email}`,
+  };
+  // console.log(loggedInUser);
+
+  const handleWatchList = () => {
+    // console.log(details);
+    const watchlistData = {
+      reviewId: details._id,
+      title,
+      image,
+      rating,
+      genres,
+      addedBy: loggedInUser.name,
+      userEmail: loggedInUser.email,
+    };
+
+    fetch("https://ph-assignment10-server-lilac.vercel.app/watchlist", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(watchlistData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("added watchlist successfully", data);
+      })
+      .catch((error) => {
+        console.log("not added watchlist on database", error);
+      });
+  };
 
   return (
     <div className="container mx-auto py-12 px-4">
@@ -113,7 +109,10 @@ const ReviewsDetails = () => {
           </div>
 
           {/* Add to Watchlist */}
-          <button onClick={handleWatchList} className="btn btn-primary mt-6 w-full lg:w-auto">
+          <button
+            onClick={handleWatchList}
+            className="btn btn-primary mt-6 w-full lg:w-auto"
+          >
             Add to WatchList
           </button>
         </div>

@@ -17,35 +17,33 @@ const Loing = () => {
         setUsers(result.user);
         console.log(result.user);
 
-      // last login time
-      const lastLogInTime = result?.user?.metadata?.lastSignInTime;
-      console.log(lastLogInTime);
-      const logInInfo = { email, lastLogInTime };
-      fetch("http://localhost:5000/person", {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(logInInfo),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
+        // last login time
+        const lastLogInTime = result?.user?.metadata?.lastSignInTime;
+        console.log(lastLogInTime);
+        const logInInfo = { email, lastLogInTime };
+        fetch("https://ph-assignment10-server-lilac.vercel.app/person", {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(logInInfo),
         })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
       })
-      .catch(error => {
-      toast.error('Invalid email or password please try again');
+      .catch((error) => {
+        toast.error("Invalid email or password please try again");
       });
-    
   };
 
   const handleSignInUserWithGoogle = () => {
-    console.log('clicked on google');
-    sigInWithGoogle()
-      .then(result => {
-        console.log(result.user);
-        toast.success('loggin success')
-    })
+    console.log("clicked on google");
+    sigInWithGoogle().then((result) => {
+      console.log(result.user);
+      toast.success("loggin success");
+    });
   };
 
   return (
@@ -86,14 +84,19 @@ const Loing = () => {
               />
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
-                 LogIn With Google
+                  LogIn With Google
                 </a>
               </label>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
               <div className="mx-auto mt-2">
-                <h3 onClick={handleSignInUserWithGoogle} className="btn border-2 border-blue-500">LogIn With Google</h3>
+                <h3
+                  onClick={handleSignInUserWithGoogle}
+                  className="btn border-2 border-blue-500"
+                >
+                  LogIn With Google
+                </h3>
               </div>
               <p>
                 Don't Have You An Account{" "}

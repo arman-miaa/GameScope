@@ -1,15 +1,14 @@
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
-
 const UpdateReview = () => {
   const reviewfoUpdate = useLoaderData();
   // console.log(review);
   const { _id, image, title, review, rating, year, genres, email, name } =
     reviewfoUpdate;
 
-//   console.log(_id,image, title, review, rating, year, genres, email, name);
-    const navigate = useNavigate();
+  //   console.log(_id,image, title, review, rating, year, genres, email, name);
+  const navigate = useNavigate();
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -35,28 +34,31 @@ const UpdateReview = () => {
     console.log(updateReview);
     // console.log(id);
 
-      fetch(`http://localhost:5000/updateReview/${_id}`, {
-          method: 'PUT',
-          headers: {
-              'content-type': 'application/json'
-          },
-          body: JSON.stringify(updateReview)
+    fetch(
+      `https://ph-assignment10-server-lilac.vercel.app/updateReview/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateReview),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/myReviews");
       })
-          .then(res => res.json())
-          .then(data => {
-              console.log(data);
-              Swal.fire({
-                  position: "center",
-                  icon: "success",
-                  title: "Your work has been saved",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-                navigate('/myReviews')
-          })
-          .catch(error => {
-          console.log('update error', error);
-      })
+      .catch((error) => {
+        console.log("update error", error);
+      });
   };
 
   return (
