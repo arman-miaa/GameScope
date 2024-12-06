@@ -39,7 +39,7 @@ const PopularGames = () => {
       ) : (
         <div>
           <Marquee pauseOnHover={true} speed={100}>
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-8 mr-8">
               {populargames.map((game, index) => (
                 <div
                   key={index}
@@ -50,7 +50,7 @@ const PopularGames = () => {
                     <img
                       src={game.image}
                       alt={game.title}
-                      className="w-48 h-48 rounded-full object-cover"
+                      className="w-52 h-52 rounded-full object-cover"
                     />
                   </div>
 

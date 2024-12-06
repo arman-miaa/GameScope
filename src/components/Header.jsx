@@ -22,7 +22,7 @@ const Header = () => {
    
     </>
     return (
-      <div className="navbar  container mx-auto">
+      <div className="navbar  container  mx-auto sticky top-0 left-0 z-40">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -67,7 +67,9 @@ const Header = () => {
                   <p className="">{users.displayName}</p>
                 </Tooltip>
               </div>
-              <button onClick={handleLogOutUser}>LogOut</button>
+              <button onClick={handleLogOutUser}
+              className="btn bg-red-600 hover:bg-red-900 text-main"
+              >LogOut</button>
             </div>
           ) : (
             <div className="flex items-center justify-center gap-4">

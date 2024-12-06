@@ -22,9 +22,9 @@ const Contact = () => {
       </div>
 
       {/* Contact and Form Section */}
-      <div className="container mx-auto px-6 lg:px-20 flex items-center  flex-col md:flex-row gap-2">
+      <div className="container mx-auto px-6 lg:px-32 flex items-center  flex-col md:flex-row gap-2">
         {/* Contact Information */}
-        <div className="flex-1   md:text-left hidden md:flex flex-col">
+        <div className="flex-1  md:text-left hidden md:flex flex-col">
           <h2 className="text-3xl font-semibold mb-6 text-[#ADFF00]">
             Contact Information
           </h2>
@@ -48,7 +48,7 @@ const Contact = () => {
         </div>
 
         {/* Contact Form */}
-        <div className="flex-1 bg-[#2D2D2D] w-full rounded-lg p-6 shadow-lg">
+        <div className="flex-1 bg-[#2D2D2D] mt-12 w-full rounded-lg p-6 shadow-lg">
           <h2 className="text-2xl font-bold text-center text-[#ADFF00] mb-6">
             Send Us a Message
           </h2>

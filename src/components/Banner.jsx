@@ -1,3 +1,4 @@
+import { Typewriter } from "react-simple-typewriter";
 import banner1 from "../assets/banner1.png";
 import banner2 from "../assets/banner2.png";
 import banner3 from "../assets/banner3.png";
@@ -13,7 +14,14 @@ const Banner = () => {
           {/* text */}
           <div className=" bg-cover bg-center h-96">
             <div className="absolute inset-0  flex flex-col justify-center items-start px-8 text-white">
-              <h1 className="text-4xl font-bold">PUBG</h1>
+              <h1 className="text-4xl font-bold">
+                <Typewriter
+                  words={["PUBG"]}
+                  loop={true}
+                  cursor
+                  cursorStyle="|"
+                />
+              </h1>
               <div className="flex items-center space-x-4 mt-4">
                 <span className="flex items-center space-x-1">
                   <i className="fas fa-film"></i> <span>Action</span>
@@ -46,7 +54,14 @@ const Banner = () => {
           {/* text */}
           <div className=" bg-cover bg-center h-96">
             <div className="absolute inset-0  flex flex-col justify-center items-start px-8 text-white">
-              <h1 className="text-4xl font-bold">The Revenant</h1>
+              <h1 className="text-4xl font-bold">
+                <Typewriter
+                  words={["The Revenant"]}
+                  loop={true}
+                  cursor
+                  cursorStyle="|"
+                />
+              </h1>
               <div className="flex items-center space-x-4 mt-4">
                 <span className="flex items-center space-x-1">
                   <i className="fas fa-film"></i> <span>Action</span>
@@ -77,7 +92,14 @@ const Banner = () => {
           {/* text */}
           <div className=" bg-cover bg-center h-96">
             <div className="absolute inset-0  flex flex-col justify-center items-start px-8 text-white">
-              <h1 className="text-4xl font-bold">FREEFIRE</h1>
+              <h1 className="text-4xl font-bold">
+                <Typewriter
+                  words={["FREEFIRE"]}
+                  loop={true}
+                  cursor
+                  cursorStyle="|"
+                />
+              </h1>
               <div className="flex items-center space-x-4 mt-4">
                 <span className="flex items-center space-x-1">
                   <i className="fas fa-film"></i> <span>Action</span>

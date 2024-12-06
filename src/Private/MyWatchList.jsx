@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import Spinner from "../pages/Spinner";
 
 const MyWatchList = () => {
   const { users } = useContext(AuthContext);
   const [watchLists, setWatchLists] = useState([]);
-  console.log(watchLists);
+  const [loader, setLoader] = useState(true);
+  // console.log(watchLists);
 
   const email = users.email;
   // console.log(email);
@@ -17,8 +19,12 @@ const MyWatchList = () => {
       .then((res) => res.json())
       .then((data) => {
         setWatchLists(data);
+        setLoader(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        // console.error(err);
+        setLoader(false);
+      });
   }, []);
 
   const handleRemoveWatchList = (id) => {
@@ -60,80 +66,84 @@ const MyWatchList = () => {
 
   return (
     <section className="bg-[#1D1D1D] min-h-screen">
-      <div className="container mx-auto px-4 py-12">
-        <h2 className="text-3xl font-bold text-center mb-6 text-[#ADFF00]">
-          My Watch List
-        </h2>
-        {watchLists.length > 0 ? (
-          <div className="overflow-x-auto">
-            <table className="table-auto w-full border-collapse border border-gray-700 text-[#ADFF00] shadow-lg rounded-lg">
-              <thead>
-                <tr className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 text-white">
-                  <th className="px-4 py-3 border border-gray-700 text-left">
-                    #
-                  </th>
-                  <th className="px-4 py-3 border border-gray-700 text-left">
-                    Image
-                  </th>
-                  <th className="px-4 py-3 border border-gray-700 text-left">
-                    Name
-                  </th>
-                  <th className="px-4 py-3 border hidden md:flex border-gray-700 text-left">
-                    Genres
-                  </th>
-                  <th className="px-4 py-3 border border-gray-700 text-left">
-                    Rating
-                  </th>
-                  <th className="px-4 py-3 border border-gray-700 text-left">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {watchLists.map((watchLists, index) => (
-                  <tr
-                    key={watchLists._id}
-                    className={`border-t border-gray-700 ${
-                      index % 2 === 0 ? "bg-gray-900" : "bg-gray-800"
-                    } hover:bg-gray-700`}
-                  >
-                    <td className="px-4 py-3">{index + 1}</td>
-                    <td className="px-4 py-3">
-                      <img
-                        className="w-14 h-14 rounded-full border border-gray-500"
-                        src={watchLists.image}
-                        alt={watchLists.title}
-                      />
-                    </td>
-                    <td className="px-4 py-3">{watchLists.title}</td>
-                    <td className="px-4 py-3 hidden  md:flex mt-4">
-                      {watchLists.genres}
-                    </td>
-                    <td className="px-4 py-3">{watchLists.rating}/10</td>
-                    <td className="px-4 py-3 flex flex-col items-center  md:flex-row space-x-2 space-y-2 md:space-y-0">
-                      {/* <button className="w-20 py-2 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600 shadow">
+      {loader ? (
+        <Spinner></Spinner>
+      ) : (
+        <div className="container mx-auto px-4 py-12">
+          <h2 className="text-3xl font-bold text-center mb-6 text-[#ADFF00]">
+            My Watch List
+          </h2>
+          {watchLists.length > 0 ? (
+            <div className="overflow-x-auto">
+              <table className="table-auto w-full border-collapse border border-gray-700 text-[#ADFF00] shadow-lg rounded-lg">
+                <thead>
+                  <tr className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 text-white">
+                    <th className="px-4 py-3 border border-gray-700 text-left">
+                      #
+                    </th>
+                    <th className="px-4 py-3 border border-gray-700 text-left">
+                      Image
+                    </th>
+                    <th className="px-4 py-3 border border-gray-700 text-left">
+                      Name
+                    </th>
+                    <th className="px-4 py-3 border hidden md:flex border-gray-700 text-left">
+                      Genres
+                    </th>
+                    <th className="px-4 py-3 border border-gray-700 text-left">
+                      Rating
+                    </th>
+                    <th className="px-4 py-3 border border-gray-700 text-left">
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {watchLists.map((watchLists, index) => (
+                    <tr
+                      key={watchLists._id}
+                      className={`border-t border-gray-700 ${
+                        index % 2 === 0 ? "bg-gray-900" : "bg-gray-800"
+                      } hover:bg-gray-700`}
+                    >
+                      <td className="px-4 py-3">{index + 1}</td>
+                      <td className="px-4 py-3">
+                        <img
+                          className="w-14 h-14 rounded-full border border-gray-500"
+                          src={watchLists.image}
+                          alt={watchLists.title}
+                        />
+                      </td>
+                      <td className="px-4 py-3">{watchLists.title}</td>
+                      <td className="px-4 py-3 hidden  md:flex mt-4">
+                        {watchLists.genres}
+                      </td>
+                      <td className="px-4 py-3">{watchLists.rating}/10</td>
+                      <td className="px-4 py-3 flex flex-col items-center  md:flex-row space-x-2 space-y-2 md:space-y-0">
+                        {/* <button className="w-20 py-2 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600 shadow">
                           Update
                         </button> */}
-                      <button
-                        onClick={() => {
-                          handleRemoveWatchList(watchLists._id);
-                        }}
-                        className="w-20 py-2 text-sm bg-red-500 text-white rounded-lg hover:bg-red-600 shadow"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ) : (
-          <p className="text-center text-gray-400 mt-4">
-            No watchListss added yet.
-          </p>
-        )}
-      </div>
+                        <button
+                          onClick={() => {
+                            handleRemoveWatchList(watchLists._id);
+                          }}
+                          className="w-20 py-2 text-sm bg-red-500 text-white rounded-lg hover:bg-red-600 shadow"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p className="text-center text-gray-400 mt-4">
+              No watchListss added yet.
+            </p>
+          )}
+        </div>
+      )}
     </section>
   );
 };
