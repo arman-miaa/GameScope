@@ -15,8 +15,8 @@ const Home = () => {
                 <HighestRatedReviews></HighestRatedReviews>
                 {/* <NewGames></NewGames> */}
                 <PopularGames></PopularGames>
-                {/* <Contact></Contact> */}
-                <ReviewsVideoSection></ReviewsVideoSection>
+                <Contact></Contact>
+                {/* <ReviewsVideoSection></ReviewsVideoSection> */}
             </div>
         </div>
     );

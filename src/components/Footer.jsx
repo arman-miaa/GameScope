@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-base-200 mt-12 ">
+    <div className=" mt-12 ">
       <footer className=" container mx-auto  footer text-base-content p-10">
         {/* Left Section */}
-        <nav className=" mx-auto lg:mx-0">
+        <nav className=" mx-auto lg:mx-0 text-white">
           <h6 className="footer-title">Services</h6>
           <a className="link link-hover">Branding</a>
           <a className="link link-hover">Design</a>

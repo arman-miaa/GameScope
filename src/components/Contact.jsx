@@ -6,66 +6,49 @@ const Contact = () => {
     toast.success("Your feedback has been submitted successfully!", {
       position: "top-center",
     });
+    // Add logic to handle form submission, e.g., send data to API or email
   };
 
   return (
-    <div className="bg-[#1D1D1D] text-white py-12">
+    <div className="text-white py-12">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-4 text-[#ADFF00]">
-          Get in Touch with Us
+          Stay Connected and Share Your Feedback
         </h1>
-        <p className="max-w-xl mx-auto text-gray-300">
+        <p className="max-w-xl mx-auto text-white">
           We'd love to hear from you! Feel free to share your thoughts,
-          feedback, or inquiries using the form below. Connect with us on social
-          media and stay updated on the latest trends and updates.
+          feedback, or inquiries using the form below.
         </p>
       </div>
 
-      {/* Form and Social Section */}
-      <div className="container mx-auto px-6 lg:px-20 flex flex-col lg:flex-row items-start lg:items-center gap-10">
-        {/* Social Media */}
-        <div className="flex-1 text-center lg:text-left">
+      {/* Contact and Form Section */}
+      <div className="container mx-auto px-6 lg:px-20 flex items-center  flex-col md:flex-row gap-2">
+        {/* Contact Information */}
+        <div className="flex-1   md:text-left hidden md:flex flex-col">
           <h2 className="text-3xl font-semibold mb-6 text-[#ADFF00]">
-            Follow Us
+            Contact Information
           </h2>
           <p className="text-gray-400 mb-6">
-            Join our community and stay updated with the latest news and
-            updates!
+            You can reach us through the following channels:
           </p>
-          <div className="flex justify-center lg:justify-start space-x-4">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center hover:bg-blue-700 transition"
-            >
-              <i className="fab fa-facebook-f text-white text-lg"></i>
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              className="w-12 h-12 rounded-full bg-blue-400 flex items-center justify-center hover:bg-blue-500 transition"
-            >
-              <i className="fab fa-twitter text-white text-lg"></i>
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              className="w-12 h-12 rounded-full bg-pink-500 flex items-center justify-center hover:bg-pink-600 transition"
-            >
-              <i className="fab fa-instagram text-white text-lg"></i>
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              className="w-12 h-12 rounded-full bg-blue-700 flex items-center justify-center hover:bg-blue-800 transition"
-            >
-              <i className="fab fa-linkedin-in text-white text-lg"></i>
-            </a>
+          <div className="space-y-6">
+            <div className="flex items-center justify-center md:justify-start space-x-4">
+              <i className="fas fa-phone-alt text-[#ADFF00]"></i>
+              <p className="text-gray-400">+880 173 6550 601</p>
+            </div>
+            <div className="flex items-center justify-center md:justify-start space-x-4">
+              <i className="fas fa-map-marker-alt text-[#ADFF00]"></i>
+              <p className="text-gray-400">2300 Bhairav, Dhaka, Bangladesh</p>
+            </div>
+            <div className="flex items-center justify-center md:justify-start space-x-4">
+              <i className="fas fa-envelope text-[#ADFF00]"></i>
+              <p className="text-gray-400">arman.miaa36gmail.com</p>
+            </div>
           </div>
         </div>
 
         {/* Contact Form */}
-        <div className="flex-1 bg-[#2D2D2D] rounded-lg p-6 shadow-lg">
+        <div className="flex-1 bg-[#2D2D2D] w-full rounded-lg p-6 shadow-lg">
           <h2 className="text-2xl font-bold text-center text-[#ADFF00] mb-6">
             Send Us a Message
           </h2>

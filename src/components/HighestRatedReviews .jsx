@@ -28,10 +28,10 @@ const HighestRatedReviews = () => {
         <div>
           <h2>Highest Rated Reviews Page</h2>
           <p>Total Reviews: {reviews.length}</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 border-2 rounded-xl p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8  rounded-xl p-6">
             {reviews.map((review, index) => (
               <div key={index}>
-                <div className="card bg-base-100 flex flex-col justify-between border-2 shadow-xl p-6 h-full">
+                <div className="card  flex flex-col justify-between border-2 border-lime-400 shadow-xl p-6 h-full">
                   <figure>
                     <img
                       className="w-full h-[200px] object-cover rounded-xl"
@@ -39,7 +39,7 @@ const HighestRatedReviews = () => {
                       alt={review.title}
                     />
                   </figure>
-                  <div className="flex flex-col flex-grow mt-4">
+                  <div className="flex flex-col flex-grow mt-4 text-white">
                     <h2 className="text-3xl font-bold">{review.title}</h2>
                     <p className="text-2xl mt-2">Genres: {review.genres}</p>
                     <p className="text-2xl mt-2">
