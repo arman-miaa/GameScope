@@ -11,7 +11,7 @@ const Home = () => {
             <div>
                 <Banner></Banner>
                 <HighestRatedReviews></HighestRatedReviews>
-                <NewGames></NewGames>
+                {/* <NewGames></NewGames> */}
                 <PopularGames></PopularGames>
             </div>
         </div>
