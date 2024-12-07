@@ -22,7 +22,7 @@ const Header = () => {
    
     </>
     return (
-      <div className="navbar  container  mx-auto sticky top-0 left-0 z-40">
+      <div className="navbar   py-4  container  text-white  mx-auto sticky top-0 left-0 z-40">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,15 +43,15 @@ const Header = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content  bg-[#1D1D1D] rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">GameScope</a>
+          <a className="btn btn-ghost text-xl hover:text-main">GameScope</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{links}</ul>
+          <ul className="menu menu-horizontal px-1 ">{links}</ul>
         </div>
         <div className="navbar-end">
           {users?.email ? (
@@ -59,7 +59,7 @@ const Header = () => {
               <div>
                 <img
                   data-tooltip-id="my-tooltip"
-                  className="border-2 w-16 h-16 rounded-full"
+                  className="border-2 w-14 h-14 rounded-full"
                   src={users.photoURL}
                   alt=""
                 />
@@ -67,9 +67,12 @@ const Header = () => {
                   <p className="">{users.displayName}</p>
                 </Tooltip>
               </div>
-              <button onClick={handleLogOutUser}
-              className="btn bg-red-600 hover:bg-red-900 text-main"
-              >LogOut</button>
+              <button
+                onClick={handleLogOutUser}
+                className="btn bg-red-600 border-none hover:bg-red-900 text-main"
+              >
+                LogOut
+              </button>
             </div>
           ) : (
             <div className="flex items-center justify-center gap-4">

@@ -31,7 +31,7 @@ const AllReviews = () => {
       <div className="flex items-center justify-center p-4 gap-6">
         <select
           onChange={(e) => setGenre(e.target.value)}
-          className="border-2 select select-bordered btn px-32"
+          className="border-2 select select-bordered btn px-12 md:px-32"
         >
           <option value="">Filter By Genre</option>
           <option value="Action">Action</option>

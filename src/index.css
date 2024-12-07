@@ -7,17 +7,10 @@ body{
     
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
 
-.animate-scroll {
-  display: flex;
-  animation: scroll 15s linear infinite;
-  gap: 1rem;
+.active{
+    color:#ADFF00 !important;
+    
+    /* background: none !important; */
+    text-decoration: underline;
 }

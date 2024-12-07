@@ -47,7 +47,7 @@ const HighestRatedReviews = () => {
                     </p>
                     <div className="mt-auto">
                       <Link to={`/reviewsDetails/${review._id}`}>
-                        <button className="btn btn-primary w-full mt-6">
+                        <button className="btn bg-[#ADFF00] border-none w-full mt-6 font-bold">
                           Explore Details
                         </button>
                       </Link>

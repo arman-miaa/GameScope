@@ -23,11 +23,11 @@ const PopularGames = () => {
   };
 
   return (
-    <div className="px-6 py-8">
+    <div className="px-6 py-8 mt-8 ">
       {/* Heading Section */}
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-lime-400">Popular Games</h1>
-        <p className=" mt-2 md:w-1/2 mx-auto text-xl tewh text-white">
+        <p className=" mt-4 md:w-1/2 mx-auto text-xl tewh text-white">
           Discover the most popular games that gamers around the globe adore.
           Whether you're into epic adventures, strategic challenges, or
           fast-paced action, there's something for everyone.
@@ -39,11 +39,11 @@ const PopularGames = () => {
       ) : (
         <div>
           <Marquee pauseOnHover={true} speed={100}>
-            <div className="flex flex-wrap gap-8 mr-8">
+            <div className="flex flex-wrap mt-4  gap-8 mr-8">
               {populargames.map((game, index) => (
                 <div
                   key={index}
-                  className="bg-black border-2 border-lime-400 p-6 rounded-lg shadow-lg text-white flex flex-col h-full min-h-[350px] justify-between"
+                  className="bg-black border-2 border-lime-400 p-6 px-8 rounded-lg shadow-lg text-white flex flex-col h-full min-h-[350px] justify-between"
                 >
                   {/* Image Section */}
                   <div className="flex justify-center mb-4">
