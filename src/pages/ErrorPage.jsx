@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const ErrorPage = () => {
     return (
         <div className="flex flex-col justify-center items-center h-screen">
-            <h1>Sorry! Page Not Found</h1>
-            <p>Go bace to <Link to='/' className="text-red-700 underline">Home</Link></p>
+            <h1 className="text-gray-400 md:text-3xl font-bold">Sorry! Page Not Found</h1>
+            <p className="text-gray-400 mt-2 md:text-3xl">Go bace to <Link to='/' className="text-red-400 underline ">Home</Link></p>
         </div>
     );
 };

@@ -62,7 +62,7 @@ const AllReviews = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {reviews.map((review) => (
           <div key={review._id}>
-            <div className="card bg-base-100 shadow-xl p-6">
+            <div className="card bg-[#2D2D2D]    p-6">
               <figure>
                 <img
                   className="w-full h-[300px] object-cover rounded-xl"
@@ -70,7 +70,7 @@ const AllReviews = () => {
                   alt={review.title}
                 />
               </figure>
-              <div className="card-body">
+              <div className="card-body text-white">
                 <h2 className="card-title">{review.title}</h2>
                 <p>Genres: {review.genres}</p>
                 <p>Publishing year: {review.year}</p>

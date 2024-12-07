@@ -26,8 +26,8 @@ const PopularGames = () => {
     <div className="px-6 py-8 mt-8 ">
       {/* Heading Section */}
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-lime-400">Popular Games</h1>
-        <p className=" mt-4 md:w-1/2 mx-auto text-xl tewh text-white">
+        <h1 className="text-4xl font-bold text-[var(--footer-title-color)]">Popular Games</h1>
+        <p className=" mt-4 md:w-1/2 mx-auto text-xl tewh text-[gray]">
           Discover the most popular games that gamers around the globe adore.
           Whether you're into epic adventures, strategic challenges, or
           fast-paced action, there's something for everyone.

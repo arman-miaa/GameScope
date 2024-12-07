@@ -13,6 +13,7 @@ import MyReviews from "../Private/MyReviews";
 import ReviewsDetails from "../Private/ReviewsDetails";
 import UpdateReview from "../Private/UpdateReview";
 import MyWatchList from "../Private/MyWatchList";
+import Private from "../Private/Private";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: "addReview",
-        element: <AddReview></AddReview>,
+        element: (
+          <Private>
+            <AddReview></AddReview>
+          </Private>
+        ),
       },
       {
         path: "reviewsDetails/:id",
@@ -40,11 +45,19 @@ const router = createBrowserRouter([
           fetch(
             `https://ph-assignment10-server-lilac.vercel.app/reviews/${params.id}`
           ),
-        element: <ReviewsDetails></ReviewsDetails>,
+        element: (
+          <Private>
+            <ReviewsDetails></ReviewsDetails>
+          </Private>
+        ),
       },
       {
         path: "myReviews",
-        element: <MyReviews></MyReviews>,
+        element: (
+          <Private>
+            <MyReviews></MyReviews>
+          </Private>
+        ),
       },
       {
         path: "getReview/:id",
@@ -56,7 +69,11 @@ const router = createBrowserRouter([
       },
       {
         path: "gameWatchList",
-        element: <MyWatchList></MyWatchList>,
+        element: (
+          <Private>
+            <MyWatchList></MyWatchList>
+          </Private>
+        ),
       },
 
       {

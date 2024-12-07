@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const ReviewsDetails = () => {
   const { users } = useContext(AuthContext);
@@ -44,10 +45,13 @@ const ReviewsDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("added watchlist successfully", data);
+        toast.success("added watchlist successfully on database");
+        // console.log("added watchlist successfully", data);
       })
       .catch((error) => {
-        console.log("not added watchlist on database", error);
+        toast.success("not added watchlist on database");
+
+        // console.log("not added watchlist on database", error);
       });
   };
 
@@ -85,7 +89,7 @@ const ReviewsDetails = () => {
         <div className="w-full lg:w-2/3 flex flex-col justify-between">
           <div>
             <h2 className="text-3xl font-bold mb-4">{title}</h2>
-            <p className="text-gray-700 mb-4">{review}</p>
+            <p className="text-[var(--text-color)] mb-4">{review}</p>
             <div className="mb-4">
               <p className="font-semibold">
                 <span className="text-primary">Genre:</span> {genres}
@@ -95,11 +99,11 @@ const ReviewsDetails = () => {
               </p>
             </div>
             <div>
-              <p className="text-gray-700">
+              <p className="text-[var(--text-color)] ">
                 <span className="font-semibold text-primary">Reviewed By:</span>{" "}
                 {reviewer}
               </p>
-              <p className="text-gray-700">
+              <p className="text-[var(--text-color)] ">
                 <span className="font-semibold text-primary">
                   Reviewer Email:
                 </span>{" "}

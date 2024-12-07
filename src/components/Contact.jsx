@@ -1,6 +1,8 @@
 import toast from "react-hot-toast";
+import { useTheme } from "../provider/ThemeProvider ";
 
 const Contact = () => {
+  const { theme } = useTheme();
   const handleSubmitForm = (e) => {
     e.preventDefault();
     toast.success("Your feedback has been submitted successfully!", {
@@ -12,10 +14,11 @@ const Contact = () => {
   return (
     <div className="text-white py-12">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4 text-[#ADFF00]">
+        <h1 className="text-4xl font-bold mb-4 text-[var(--highlight)]">
           Stay Connected and Share Your Feedback
         </h1>
-        <p className="max-w-xl mx-auto text-white">
+
+        <p className="max-w-xl mx-auto text-[gray]">
           We'd love to hear from you! Feel free to share your thoughts,
           feedback, or inquiries using the form below.
         </p>
@@ -25,7 +28,7 @@ const Contact = () => {
       <div className="container mx-auto px-6 lg:px-32 flex items-center  flex-col md:flex-row gap-2">
         {/* Contact Information */}
         <div className="flex-1  md:text-left hidden md:flex flex-col">
-          <h2 className="text-3xl font-semibold mb-6 text-[#ADFF00]">
+          <h2 className="text-3xl font-semibold mb-6 text-[var(--highlight)]">
             Contact Information
           </h2>
           <p className="text-gray-400 mb-6">
@@ -48,34 +51,57 @@ const Contact = () => {
         </div>
 
         {/* Contact Form */}
-        <div className="flex-1 bg-[#2D2D2D] mt-12 w-full rounded-lg p-6 shadow-lg">
-          <h2 className="text-2xl font-bold text-center text-[#ADFF00] mb-6">
+        <div
+          className={`flex-1 ${
+            theme === "dark" ? "bg-[#2D2D2D]" : "bg-gray-200"
+          } mt-12 w-full rounded-lg p-6 shadow-lg`}
+        >
+          <h2 className="text-2xl font-bold text-center text-[var(--highlight)] mb-6">
             Send Us a Message
           </h2>
           <form onSubmit={handleSubmitForm}>
             <div className="mb-4">
-              <label className="block text-gray-300 mb-2">Full Name</label>
+              <label
+                className={`block mb-2 ${
+                  theme === "dark" ? "text-white" : "text-black"
+                }`}
+              >
+                Full Name
+              </label>
+
               <input
                 type="text"
                 placeholder="Enter your name"
-                className="w-full p-3 bg-[#1D1D1D] text-white border border-[#ADFF00] rounded"
+                className="w-full p-3  text-[var(--text-color)]  border border-[#ADFF00] rounded"
                 required
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-300 mb-2">Email</label>
+              <label
+                className={`block mb-2 ${
+                  theme === "dark" ? "text-white" : "text-black"
+                }`}
+              >
+                Email
+              </label>
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full p-3 bg-[#1D1D1D] text-white border border-[#ADFF00] rounded"
+                className="w-full p-3  text-[var(--text-color)]  border border-[#ADFF00] rounded"
                 required
               />
             </div>
             <div className="mb-6">
-              <label className="block text-gray-300 mb-2">Message</label>
+              <label
+                className={`block mb-2 ${
+                  theme === "dark" ? "text-white" : "text-black"
+                }`}
+              >
+                Message
+              </label>
               <textarea
                 placeholder="Enter your message"
-                className="w-full p-3 bg-[#1D1D1D] text-white border border-[#ADFF00] rounded"
+                className="w-full p-3  text-[var(--text-color)] resize-none border border-[#ADFF00] rounded"
                 rows="5"
                 required
               ></textarea>

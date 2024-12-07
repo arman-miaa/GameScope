@@ -50,7 +50,7 @@ const UpdateReview = () => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Your work has been saved",
+          title: "Your Review Updated Successfully",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -125,7 +125,7 @@ const UpdateReview = () => {
                 rows="4"
                 required
                 placeholder="Write your review here..."
-                className="w-full border border-gray-500 bg-[#1D1D1D] text-white rounded-lg p-2 focus:border-[#ADFF00] focus:ring-[#ADFF00]"
+                className="w-full border resize-none border-gray-500 bg-[#1D1D1D] text-white rounded-lg p-2 focus:border-[#ADFF00] focus:ring-[#ADFF00]"
               ></textarea>
             </div>
 

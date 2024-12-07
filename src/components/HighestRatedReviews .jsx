@@ -39,7 +39,7 @@ const HighestRatedReviews = () => {
                       alt={review.title}
                     />
                   </figure>
-                  <div className="flex flex-col flex-grow mt-4 text-white">
+                  <div className="flex flex-col flex-grow mt-4 text-[var(--text-color)] ">
                     <h2 className="text-3xl font-bold">{review.title}</h2>
                     <p className="text-2xl mt-2">Genres: {review.genres}</p>
                     <p className="text-2xl mt-2">
