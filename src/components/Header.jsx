@@ -61,7 +61,7 @@ const { theme, toggleTheme } = useTheme();
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl hover:text-main">GameScope</a>
+        <a className=" text-xl hover:text-main">GameScope</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 md:font-bold ">{links}</ul>
@@ -94,19 +94,19 @@ const { theme, toggleTheme } = useTheme();
                 <p className="">{users.displayName}</p>
               </Tooltip>
             </div>
-            <button
+            <p
               onClick={handleLogOutUser}
-              className="btn bg-red-600 border-none hover:bg-red-900 text-main"
+              className=" p-2 text-sm md:text-xl rounded-md bg-red-600 border-none hover:bg-red-900 text-main"
             >
               LogOut
-            </button>
+            </p>
           </div>
         ) : (
           <div className="flex items-center justify-center gap-4">
-            <button className="btn btn-primary">
+            <button className="p-2 md:px-4 text-sm md:text-xl rounded-md text-black  bg-[#646EE4]">
               <NavLink to="/login">Login</NavLink>
             </button>
-            <button className="btn btn-primary">
+            <button className="p-2 md:px-4 text-sm md:text-xl rounded-md text-black  bg-[#646EE4]">
               <NavLink to="/signup">Register</NavLink>
             </button>
           </div>

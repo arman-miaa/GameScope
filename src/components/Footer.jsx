@@ -7,8 +7,9 @@ const Footer = () => {
   return (
     <div className=" mt-12  ">
       <footer className="footer">
-        <div className=" container mx-auto  footer text-base-content p-10">
+        <div className=" container mx-auto   footer text-base-content p-10">
           {/* Left Section */}
+          
           <nav className=" mx-auto lg:mx-0 ">
             <h6 className="text-xl text-[var(--highlight)]">Services</h6>
 

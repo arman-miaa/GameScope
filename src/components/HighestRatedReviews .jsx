@@ -26,8 +26,16 @@ const HighestRatedReviews = () => {
         <p>Loading...</p>
       ) : (
         <div>
-          <h2>Highest Rated Reviews Page</h2>
-          <p>Total Reviews: {reviews.length}</p>
+          <div id="top" className="text-center mb-8 mt-12">
+            <h1 className="text-4xl font-bold text-[var(--footer-title-color)]">
+              Top-Tier Game Reviews
+            </h1>
+            <p className=" mt-4 md:w-1/2 mx-auto text-xl tewh text-[gray]">
+              Discover the top-rated reviews from our community! Explore
+              detailed insights and experiences from real users to help you make
+              informed decisions. Find out what makes these reviews stand out!
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8  rounded-xl p-6">
             {reviews.map((review, index) => (
               <div key={index}>
@@ -47,7 +55,7 @@ const HighestRatedReviews = () => {
                     </p>
                     <div className="mt-auto">
                       <Link to={`/reviewsDetails/${review._id}`}>
-                        <button className="btn bg-[#ADFF00] border-none w-full mt-6 font-bold">
+                        <button className="btn text-black bg-[#ADFF00] border-none w-full hover:bg-[#ADFF00] mt-6 font-bold">
                           Explore Details
                         </button>
                       </Link>

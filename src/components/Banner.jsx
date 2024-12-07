@@ -3,6 +3,15 @@ import banner1 from "../assets/banner1.png";
 import banner2 from "../assets/banner2.png";
 import banner3 from "../assets/banner3.png";
 const Banner = () => {
+   const handleScrollToTop = () => {
+     const element = document.getElementById("top");
+     if (element) {
+       element.scrollIntoView({
+         behavior: "smooth", // স্ক্রল স্মুথ দেখাবে
+         block: "start", // টপ থেকে শুরু করবে
+       });
+     }
+   };
   return (
     <div>
       <div className="carousel w-full">
@@ -13,8 +22,9 @@ const Banner = () => {
           />
           {/* text */}
           <div className=" bg-cover bg-center h-96">
-            <div className="absolute inset-0  flex flex-col justify-center items-start px-8 text-white">
-              <h1 className="text-4xl font-bold">
+            <div className="absolute inset-0 flex flex-col justify-center items-start px-8 text-white ">
+              {/* Title Section */}
+              <h1 className="text-5xl font-extrabold uppercase tracking-wide drop-shadow-lg">
                 <Typewriter
                   words={["PUBG"]}
                   loop={true}
@@ -22,24 +32,40 @@ const Banner = () => {
                   cursorStyle="|"
                 />
               </h1>
-              <div className="flex items-center space-x-4 mt-4">
-                <span className="flex items-center space-x-1">
-                  <i className="fas fa-film"></i> <span>Action</span>
+
+              {/* Game Info */}
+              <div className="flex items-center space-x-4 mt-4 text-sm md:text-base">
+                <span className="flex items-center space-x-2">
+                  <i className="fas fa-gamepad text-yellow-400"></i>
+                  <span>Battle Royale</span>
                 </span>
-                <span className="flex items-center space-x-1">
-                  <i className="fas fa-calendar-alt"></i> <span>2023</span>
+                <span className="flex items-center space-x-2">
+                  <i className="fas fa-calendar-alt text-blue-400"></i>
+                  <span>2023</span>
                 </span>
-                <span className="flex items-center space-x-1">
-                  <i className="fas fa-clock"></i> <span>1 h 30 min</span>
+                <span className="flex items-center space-x-2">
+                  <i className="fas fa-clock text-green-400"></i>
+                  <span>45 min match</span>
                 </span>
-                <span className="bg-red-600 text-sm px-2 py-1 rounded">HD</span>
+                <span className="bg-red-600 text-xs px-3 py-1 rounded-full">
+                  4K
+                </span>
               </div>
-              <p className="mt-4 text-lg max-w-2xl">
-                PUBG, the ultimate battle royale game, challenges players to
-                survive against all odds and emerge as the last one standing.
+
+              {/* Description */}
+              <p className="mt-4 text-base md:text-lg max-w-2xl text-gray-300 drop-shadow">
+                Dive into the intense battlegrounds of PUBG, where strategy,
+                precision, and survival instincts determine the ultimate
+                champion. Fight, loot, and dominate in this high-octane action
+                game.
               </p>
-              <button className="mt-6 bg-red-600 px-6 py-2 rounded text-white hover:bg-red-700">
-                Watch Video
+
+              {/* Button */}
+              <button
+                onClick={handleScrollToTop}
+                className="mt-6 bg-yellow-500 px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-yellow-600 transition duration-300"
+              >
+                See More
               </button>
             </div>
           </div>
@@ -53,10 +79,10 @@ const Banner = () => {
 
           {/* text */}
           <div className=" bg-cover bg-center h-96">
-            <div className="absolute inset-0  flex flex-col justify-center items-start px-8 text-white">
+            <div className="absolute inset-0 flex flex-col justify-center items-start px-8 text-white">
               <h1 className="text-4xl font-bold">
                 <Typewriter
-                  words={["The Revenant"]}
+                  words={["Valorant"]}
                   loop={true}
                   cursor
                   cursorStyle="|"
@@ -64,22 +90,29 @@ const Banner = () => {
               </h1>
               <div className="flex items-center space-x-4 mt-4">
                 <span className="flex items-center space-x-1">
-                  <i className="fas fa-film"></i> <span>Action</span>
+                  <i className="fas fa-film"></i> <span>Tactical Shooter</span>
                 </span>
                 <span className="flex items-center space-x-1">
-                  <i className="fas fa-calendar-alt"></i> <span>2023</span>
+                  <i className="fas fa-calendar-alt"></i> <span>2020</span>
                 </span>
                 <span className="flex items-center space-x-1">
-                  <i className="fas fa-clock"></i> <span>1 h 30 min</span>
+                  <i className="fas fa-clock"></i>{" "}
+                  <span>30-40 mins per match</span>
                 </span>
-                <span className="bg-red-600 text-sm px-2 py-1 rounded">HD</span>
+                <span className="bg-blue-600 text-sm px-2 py-1 rounded">
+                  PC
+                </span>
               </div>
               <p className="mt-4 text-lg max-w-2xl">
-                PUBG, the ultimate battle royale game, challenges players to
-                survive against all odds and emerge as the last one standing.
+                Valorant, the highly competitive tactical shooter, brings
+                strategy, precision, and fast-paced action together in 5v5
+                matches. Test your skills with unique agents and dynamic maps.
               </p>
-              <button className="mt-6 bg-red-600 px-6 py-2 rounded text-white hover:bg-red-700">
-                Watch Video
+              <button
+                onClick={handleScrollToTop}
+                className="mt-6 bg-blue-600 px-6 py-2 rounded text-white hover:bg-blue-700"
+              >
+                See More
               </button>
             </div>
           </div>
@@ -91,10 +124,10 @@ const Banner = () => {
           />
           {/* text */}
           <div className=" bg-cover bg-center h-96">
-            <div className="absolute inset-0  flex flex-col justify-center items-start px-8 text-white">
+            <div className="absolute inset-0 flex flex-col justify-center items-start px-8 text-white">
               <h1 className="text-4xl font-bold">
                 <Typewriter
-                  words={["FREEFIRE"]}
+                  words={["FREE FIRE"]}
                   loop={true}
                   cursor
                   cursorStyle="|"
@@ -102,35 +135,42 @@ const Banner = () => {
               </h1>
               <div className="flex items-center space-x-4 mt-4">
                 <span className="flex items-center space-x-1">
-                  <i className="fas fa-film"></i> <span>Action</span>
+                  <i className="fas fa-film"></i> <span>Battle Royale</span>
                 </span>
                 <span className="flex items-center space-x-1">
-                  <i className="fas fa-calendar-alt"></i> <span>2023</span>
+                  <i className="fas fa-calendar-alt"></i> <span>2017</span>
                 </span>
                 <span className="flex items-center space-x-1">
-                  <i className="fas fa-clock"></i> <span>1 h 30 min</span>
+                  <i className="fas fa-clock"></i>{" "}
+                  <span>15-20 mins per match</span>
                 </span>
-                <span className="bg-red-600 text-sm px-2 py-1 rounded">HD</span>
+                <span className="bg-yellow-500 text-sm px-2 py-1 rounded">
+                  Mobile
+                </span>
               </div>
               <p className="mt-4 text-lg max-w-2xl">
-                PUBG, the ultimate battle royale game, challenges players to
-                survive against all odds and emerge as the last one standing.
+                Free Fire, a fast-paced battle royale game, pushes players into
+                an action-packed survival mode with quick matches and strategic
+                gameplay, offering endless excitement.
               </p>
-              <button className="mt-6 bg-red-600 px-6 py-2 rounded text-white hover:bg-red-700">
-                Watch Video
+              <button
+                onClick={handleScrollToTop}
+                className="mt-6 bg-yellow-500 px-6 py-2 rounded text-white hover:bg-yellow-600"
+              >
+                See More
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex w-full justify-center gap-2 py-2">
-        <a href="#item1" className="btn btn-xs">
+      <div className="flex w-full justify-center gap-4 py-4">
+        <a href="#item1" className="btn btn-xl text-xl border-blue-200">
           1
         </a>
-        <a href="#item2" className="btn btn-xs">
+        <a href="#item2" className="btn btn-xl text-xl border-blue-200">
           2
         </a>
-        <a href="#item3" className="btn btn-xs">
+        <a href="#item3" className="btn btn-xl text-xl border-blue-200">
           3
         </a>
       </div>
