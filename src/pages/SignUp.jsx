@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const SignUp = () => {
   const { createUser, setUsers, updateUserProfile } = useContext(AuthContext);
@@ -68,6 +69,9 @@ const SignUp = () => {
 
   return (
     <div className="hero min-h-screen" style={{ backgroundColor: "#1D1D1D" }}>
+      <Helmet>
+        <title>SignUp Page || GameScope</title>
+      </Helmet>
       <div className="hero-content flex-col">
         <div className="text-center">
           <h1 className="text-5xl font-bold mb-4" style={{ color: "#ADFF00" }}>

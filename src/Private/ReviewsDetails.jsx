@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const ReviewsDetails = () => {
   const { users } = useContext(AuthContext);
@@ -57,26 +58,11 @@ const ReviewsDetails = () => {
 
   return (
     <div className="container mx-auto py-12 px-4">
-      {/* Banner Section */}
-      {/* <div
-        className="relative w-full h-[400px] lg:h-[500px] bg-cover bg-center rounded-lg mb-8"
-        style={{
-          backgroundImage: `url(${image})`,
-          backgroundSize: "contain", // Shows the whole image without cropping
-          backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          
-        }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-4xl lg:text-5xl font-bold text-white">{title}</h1>
-        </div>
-      </div> */}
+      <Helmet>
+        <title>Review Details Page || GameScope</title>
+      </Helmet>
 
-      {/* Main Section */}
       <div className="flex flex-col lg:flex-row gap-8 bg-base-100 shadow-xl p-6 rounded-lg">
-        {/* Game Cover Image */}
         <div className="w-full h-auto lg:w-1/3">
           <img
             src={image}

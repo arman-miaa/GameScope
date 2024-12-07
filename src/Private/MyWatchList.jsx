@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import Spinner from "../pages/Spinner";
+import { Helmet } from "react-helmet";
 
 const MyWatchList = () => {
   const { users } = useContext(AuthContext);
@@ -70,6 +71,9 @@ const MyWatchList = () => {
         <Spinner></Spinner>
       ) : (
         <div className="container mx-auto px-4 py-12">
+          <Helmet>
+            <title>My Watchlist Page || GameScope</title>
+          </Helmet>
           <h2 className="text-3xl font-bold text-center mb-6 text-[#ADFF00]">
             My Watch List
           </h2>

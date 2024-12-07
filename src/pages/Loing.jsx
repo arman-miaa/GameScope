@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { signInUser, sigInWithGoogle, setUsers } = useContext(AuthContext);
@@ -44,6 +45,9 @@ const Login = () => {
       className="hero min-h-screen flex justify-center items-center"
       style={{ backgroundColor: "#1D1D1D" }}
     >
+      <Helmet>
+        <title>Login Page || GameScope</title>
+      </Helmet>
       <div className="w-full max-w-md">
         {/* Header Section */}
         <div className="text-center">

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -63,6 +64,9 @@ const UpdateReview = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Update Review Page || GameScope</title>
+      </Helmet>
       <div className="min-h-screen bg-[#1D1D1D] text-white flex items-center justify-center py-12 px-4">
         <div className="max-w-3xl w-full">
           <h2 className="text-3xl font-bold text-center text-[#ADFF00] mb-6">

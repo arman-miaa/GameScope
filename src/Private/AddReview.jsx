@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import { AuthContext } from "../provider/AuthProvider";
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 
 const AddReview = () => {
   const { users } = useContext(AuthContext);
@@ -51,6 +52,9 @@ const AddReview = () => {
 
   return (
     <div className="min-h-screen bg-[#1D1D1D] text-white flex items-center justify-center py-12 px-4">
+      <Helmet>
+        <title>Add Review Page || GameScope</title>
+      </Helmet>
       <div className="max-w-3xl w-full">
         <h2 className="text-3xl font-bold text-center text-[#ADFF00] mb-6">
           Add New Review

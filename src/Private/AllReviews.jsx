@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllReviews = () => {
@@ -28,6 +29,9 @@ const AllReviews = () => {
   return (
     <div className="container mx-auto py-12">
       {/* Filter by Genres */}
+      <Helmet>
+        <title>All Review Page || GameScope</title>
+      </Helmet>
       <div className="flex items-center justify-center p-4 gap-6">
         <select
           onChange={(e) => setGenre(e.target.value)}

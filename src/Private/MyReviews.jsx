@@ -3,6 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import Spinner from "../pages/Spinner";
+import { Helmet } from "react-helmet";
 
 const MyReviews = () => {
   const { users } = useContext(AuthContext);
@@ -71,6 +72,9 @@ const MyReviews = () => {
         <Spinner></Spinner>
       ) : (
         <div className="container mx-auto px-4 py-12">
+          <Helmet>
+            <title>My Review Page || GameScope</title>
+          </Helmet>
           <h2 className="text-3xl font-bold text-center mb-6 text-[#ADFF00]">
             My Reviews
           </h2>
