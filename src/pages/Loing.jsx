@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet";
@@ -7,9 +7,13 @@ import { Helmet } from "react-helmet";
 const Login = () => {
   const { signInUser, sigInWithGoogle, setUsers } = useContext(AuthContext);
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+     const location = useLocation();
+     const navigate = useNavigate();
+     const from = location.state?.from?.pathname || "/";
+   
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
@@ -21,9 +25,9 @@ const Login = () => {
         toast.success("Logged in successfully!");
         form.reset();
         setError("");
-        // const from = location.state?.from?.pathname || "/";
+       
         // navigate(from);
-        navigate('/');
+         navigate(from, { replace: true });
       })
       .catch(() => {
         toast.error("Invalid email or password. Please try again!");
@@ -34,7 +38,8 @@ const Login = () => {
   const handleSignInUserWithGoogle = () => {
     sigInWithGoogle().then(() => {
       toast.success("Login successful With Google!");
-        navigate("/");
+      navigate(from, { replace: true });
+      // navigate(from);
 
     })
 
