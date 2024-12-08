@@ -103,7 +103,7 @@ const ReviewsDetails = () => {
           {/* Add to Watchlist */}
           <button
             onClick={handleWatchList}
-            className="btn bg-[#ADFF00] text-black md:font-bold mt-6 w-full lg:w-auto"
+            className="btn bg-[#ADFF00] hover:bg-[#ADFF00] text-black md:font-bold mt-6 w-full lg:w-auto"
           >
             Add to WatchList
           </button>

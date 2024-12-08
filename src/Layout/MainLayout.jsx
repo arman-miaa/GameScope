@@ -7,7 +7,7 @@ const MainLayout = () => {
     return (
       <div>
         <div className="bg-[#2647dc6f">
-        {/* <div className="bg-[#414141ad]"> */}
+        
           <Header></Header>
         </div>
         <div className="min-h-[calc(100vh-290px)]">

@@ -1,10 +1,12 @@
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline"; 
 import { useTheme } from "../provider/ThemeProvider ";
 import userIcon from "../assets/user-icon.jpg";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 
 
@@ -12,9 +14,18 @@ import userIcon from "../assets/user-icon.jpg";
 const Header = () => {
   const { users, logOutUser } = useContext(AuthContext);
 const { theme, toggleTheme } = useTheme();
-
+  const navigate = useNavigate();
   const handleLogOutUser = () => {
     logOutUser();
+    navigate('/');
+   
+       Swal.fire({
+         position: "center",
+         icon: "success",
+         title: "Logged Out Successfully",
+         showConfirmButton: false,
+         timer: 1500,
+       });
   };
 
   const links = (
@@ -96,10 +107,10 @@ const { theme, toggleTheme } = useTheme();
             <div>
               <img
                 data-tooltip-id="my-tooltip"
-                className="border-2 w-14 h-14 rounded-full"
-                src={users?.photoURL || userIcon} // Add optional chaining to prevent errors if users is undefined
+                className="border-2 w-14 h-14 rounded-full cursor-pointer"
+                src={users?.photoURL || userIcon} 
                 alt="User Avatar"
-                onError={(e) => (e.target.src = userIcon)} // Fallback if the image URL is broken
+                onError={(e) => (e.target.src = userIcon)} 
               />
 
               <Tooltip id="my-tooltip">

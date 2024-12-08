@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 
 const PopularGames = () => {
-  const [populargames, setPopulargames] = useState([]); // Initialize as an empty array
-  const [loading, setLoading] = useState(true); // Add a loading state
+  const [populargames, setPopulargames] = useState([]); 
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     fetch("https://ph-assignment10-server-lilac.vercel.app/populargame")

@@ -30,20 +30,20 @@
 }
 
 
-/* Body এর জন্য থিম অ্যাপ্লাই */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: all 0.3s ease; /* Smooth Transition */
+  transition: all 0.3s ease; 
+
 }
 
 .footer {
-  background-color: var(--footer-color); /* Background color */
-  color: var(--footer-text); /* Dynamic text color */
+  background-color: var(--footer-color); 
+  color: var(--footer-text);
   padding: 1rem;
   text-align: center;
   font-weight: bold;
-  transition: all 0.3s ease; /* Smooth transitions */
+  transition: all 0.3s ease; 
 }
 
 
@@ -51,4 +51,9 @@ body {
     color:#ADFF00 !important;
     
     /* background: none !important; */
+}
+
+
+html{
+  overflow-y: scroll;
 }

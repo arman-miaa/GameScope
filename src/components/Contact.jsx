@@ -1,15 +1,28 @@
 import toast from "react-hot-toast";
 import { useTheme } from "../provider/ThemeProvider ";
+import { useRef } from "react";
+import Swal from "sweetalert2";
 
 const Contact = () => {
   const { theme } = useTheme();
+const formRef = useRef();
   const handleSubmitForm = (e) => {
+   
     e.preventDefault();
-    toast.success("Your feedback has been submitted successfully!", {
-      position: "top-center",
-    });
-    // Add logic to handle form submission, e.g., send data to API or email
+    
+     Swal.fire({
+       position: "center",
+       icon: "success",
+       title: "Your feedback has been submitted successfully!",
+       showConfirmButton: false,
+       timer: 1500,
+     });
+  
+    formRef.current.reset();
+    
   };
+
+
 
   return (
     <div className="text-white py-12">
@@ -59,7 +72,7 @@ const Contact = () => {
           <h2 className="text-2xl font-bold text-center text-[var(--highlight)] mb-6">
             Send Us a Message
           </h2>
-          <form onSubmit={handleSubmitForm}>
+          <form ref={formRef} onSubmit={handleSubmitForm}>
             <div className="mb-4">
               <label
                 className={`block mb-2 ${
@@ -108,7 +121,7 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className="w-full py-3 bg-[#ADFF00] text-black font-bold rounded hover:bg-green-500 transition"
+              className="w-full py-3 bg-[#ADFF00] text-black font-bold rounded hover:bg-[#aeff00c6] transition"
             >
               Submit
             </button>

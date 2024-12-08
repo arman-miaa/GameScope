@@ -39,9 +39,11 @@ const AddReview = () => {
       .then((res) => res.json())
       .then((data) => {
         toast.success("review added successfully");
+        form.reset();
       })
       .catch((error) => {
         toast.error("failed to add review");
+        form.reset();
       });
   };
 

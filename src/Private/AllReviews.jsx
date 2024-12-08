@@ -10,7 +10,6 @@ const AllReviews = () => {
   const [genre, setGenre] = useState("");
   const [loader, setLoader] = useState(true);
 
- 
   useEffect(() => {
     if (initialReviews) {
       setLoader(false);
@@ -19,23 +18,31 @@ const AllReviews = () => {
 
   // Handle Sort
   const handleSort = async () => {
-    setLoader(true); 
+    setLoader(true);
     const response = await fetch(
       `https://ph-assignment10-server-lilac.vercel.app/reviews?sortField=${sortField}&genre=${genre}`
     );
     const sortedReviews = await response.json();
     setReviews(sortedReviews);
-    setLoader(false); 
+    setLoader(false);
   };
 
   // Handle Filter
   const handleFilter = async () => {
-    setLoader(true); 
-    const response = await fetch(
-      `https://ph-assignment10-server-lilac.vercel.app/reviews?genre=${genre}`
-    );
-    const filteredReviews = await response.json();
-    setReviews(filteredReviews);
+    setLoader(true);
+    if (genre === "All Reviews") {
+      const response = await fetch(
+        `https://ph-assignment10-server-lilac.vercel.app/reviews`
+      );
+      const allReviews = await response.json();
+      setReviews(allReviews);
+    } else {
+      const response = await fetch(
+        `https://ph-assignment10-server-lilac.vercel.app/reviews?genre=${genre}`
+      );
+      const filteredReviews = await response.json();
+      setReviews(filteredReviews);
+    }
     setLoader(false);
   };
 
@@ -54,13 +61,14 @@ const AllReviews = () => {
               className="border-2 select select-bordered btn px-12 md:px-32"
             >
               <option value="">Filter By Genre</option>
+              <option value="All Reviews">All Reviews</option>
               <option value="Action">Action</option>
               <option value="RPG">RPG</option>
               <option value="Adventure">Adventure</option>
             </select>
             <button
               onClick={handleFilter}
-              className="btn bg-[#ADFF00] text-black"
+              className="btn bg-[#ADFF00] hover:bg-[#8ac214] text-black"
             >
               Filter
             </button>
@@ -76,7 +84,10 @@ const AllReviews = () => {
               <option value="Rating">Rating</option>
               <option value="Year">Year</option>
             </select>
-            <button onClick={handleSort} className="btn bg-[#ADFF00] text-black">
+            <button
+              onClick={handleSort}
+              className="btn bg-[#ADFF00] text-black hover:bg-[#8ac214]"
+            >
               Sort
             </button>
           </div>
@@ -100,7 +111,7 @@ const AllReviews = () => {
                     <p>Rating: {review.rating}/10⭐</p>
                     <div className="card-actions justify-end mt-2">
                       <Link to={`/reviewsDetails/${review._id}`}>
-                        <button className="btn bg-[#ADFF00] border-none text-black">
+                        <button className="btn bg-[#ADFF00] hover:bg-[#8ac214] border-none text-black">
                           Explore Details
                         </button>
                       </Link>

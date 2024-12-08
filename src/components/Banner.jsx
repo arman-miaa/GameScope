@@ -7,8 +7,8 @@ const Banner = () => {
      const element = document.getElementById("top");
      if (element) {
        element.scrollIntoView({
-         behavior: "smooth", // স্ক্রল স্মুথ দেখাবে
-         block: "start", // টপ থেকে শুরু করবে
+         behavior: "smooth",
+         block: "start", 
        });
      }
    };
