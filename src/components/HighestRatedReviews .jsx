@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Spinner from "../pages/Spinner";
 
 const HighestRatedReviews = () => {
-  const [reviews, setReviews] = useState([]); // Initialize as an empty array
-  const [loading, setLoading] = useState(true); // Add a loading state
+  const [reviews, setReviews] = useState([]); 
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     fetch(
@@ -12,18 +13,18 @@ const HighestRatedReviews = () => {
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
-        setLoading(false); // Data has been loaded
+        setLoading(false); 
       })
       .catch((error) => {
         console.log("ERROR", error);
-        setLoading(false); // Stop loading even on error
+        setLoading(false); 
       });
   }, []);
 
   return (
     <div>
-      {loading ? ( // Show a loading message until data is fetched
-        <p>Loading...</p>
+      {loading ? ( 
+      <Spinner></Spinner>
       ) : (
         <div>
           <div id="top" className="text-center mb-8 mt-12">

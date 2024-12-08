@@ -18,7 +18,7 @@ const Contact = () => {
           Stay Connected and Share Your Feedback
         </h1>
 
-        <p className="max-w-xl mx-auto text-[gray]">
+        <p className="max-w-xl mx-auto text-[gray] text-xl">
           We'd love to hear from you! Feel free to share your thoughts,
           feedback, or inquiries using the form below.
         </p>

@@ -2,12 +2,11 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { NavLink } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
-import { SunIcon, MoonIcon } from "@heroicons/react/24/outline"; // Correct import path for Heroicons v2
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline"; 
 import { useTheme } from "../provider/ThemeProvider ";
 
 const Header = () => {
   const { users, logOutUser } = useContext(AuthContext);
-  // const [theme, setTheme] = useState("dark"); // Default theme is dark
 const { theme, toggleTheme } = useTheme();
 
   const handleLogOutUser = () => {
@@ -61,26 +60,33 @@ const { theme, toggleTheme } = useTheme();
             {links}
           </ul>
         </div>
-        <a className=" text-xl hover:text-main">GameScope</a>
+        <a
+          className={`text-xl  cursor-pointer ${
+            theme === "dark" ? "hover:text-main" : "hover:text-black"
+          }`}
+        >
+          GameScope
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 md:text-lg md:font-bold ">{links}</ul>
+        <ul className="menu menu-horizontal px-1 md:text-lg md:font-bold ">
+          {links}
+        </ul>
       </div>
       <div className="navbar-end">
         {/* Theme Toggle Button */}
         <button
-          onClick={toggleTheme} // Toggle Function Call
+          onClick={toggleTheme}
           className="mr-6 px-2 capitalize flex justify-center items-center gap-0 md:gap-2"
           aria-label="Toggle Theme"
         >
           {theme === "dark" ? (
-            <MoonIcon className="h-6 w-6 md:h-8 md:w-8" /> // Dark Mode Icon
+            <MoonIcon className="h-6 w-6 md:h-8 md:w-8" />
           ) : (
-            <SunIcon className="h-6 w-6 md:h-8 md:w-8 text-yellow-500" /> // Light Mode Icon
+            <SunIcon className="h-6 w-6 md:h-8 md:w-8 text-yellow-500" />
           )}
         </button>
 
-        {/* User Authentication Section */}
         {users?.email ? (
           <div className="flex items-center justify-center gap-4">
             <div>
@@ -96,19 +102,42 @@ const { theme, toggleTheme } = useTheme();
             </div>
             <p
               onClick={handleLogOutUser}
-              className=" p-2 text-sm md:text-xl rounded-md bg-red-600 border-none hover:bg-red-900 text-main"
+              className=" cursor-pointer p-2 text-sm md:text-xl rounded-md bg-[#ADFF00] text-black"
             >
               LogOut
             </p>
           </div>
         ) : (
           <div className="flex items-center justify-center gap-4">
-            <button className="p-2 md:px-4 text-sm md:text-xl rounded-md text-black  bg-[#646EE4]">
-              <NavLink to="/login">Login</NavLink>
-            </button>
-            <button className="p-2 md:px-4 text-sm md:text-xl rounded-md text-black  bg-[#646EE4]">
-              <NavLink to="/signup">Register</NavLink>
-            </button>
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                `p-2 md:px-4 text-sm md:text-xl rounded-md font-medium ${
+                  isActive
+                    ? "bg-lime-400 text-black shadow-lg transform scale-105"
+                    : theme === "dark"
+                    ? "border-lime-300 border-2 text-white hover:bg-lime-400 hover:text-black hover:shadow-md transition-all"
+                    : "bg-black text-white hover:bg-gray-700 transition-all"
+                }`
+              }
+            >
+              Login
+            </NavLink>
+
+            <NavLink
+              to="/signup"
+              className={({ isActive }) =>
+                `p-2 md:px-4 text-sm md:text-xl rounded-md font-medium ${
+                  isActive
+                    ? "bg-lime-400 text-black shadow-lg transform scale-105"
+                    : theme === "dark"
+                    ? "border-lime-300 border-2 text-white hover:bg-lime-400 hover:text-black hover:shadow-md transition-all"
+                    : "bg-black text-white hover:bg-gray-700 transition-all"
+                }`
+              }
+            >
+              Register
+            </NavLink>
           </div>
         )}
       </div>

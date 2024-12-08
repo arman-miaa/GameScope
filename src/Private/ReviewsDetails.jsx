@@ -78,19 +78,27 @@ const ReviewsDetails = () => {
             <p className="text-[var(--text-color)] mb-4">{review}</p>
             <div className="mb-4">
               <p className="font-semibold">
-                <span className="text-primary">Genre:</span> {genres}
+                <span className="font-bold text-[var(--text-color)]">
+                  Genre:
+                </span>{" "}
+                {genres}
               </p>
               <p className="font-semibold">
-                <span className="text-primary">Rating:</span> {rating}/10⭐
+                <span className="font-bold text-[var(--text-color)]">
+                  Rating:
+                </span>{" "}
+                {rating}/10⭐
               </p>
             </div>
             <div>
               <p className="text-[var(--text-color)] ">
-                <span className="font-semibold text-primary">Reviewed By:</span>{" "}
+                <span className="font-bold text-[var(--text-color)]">
+                  Reviewed By:
+                </span>{" "}
                 {reviewer}
               </p>
               <p className="text-[var(--text-color)] ">
-                <span className="font-semibold text-primary">
+                <span className="font-bold text-[var(--text-color)]">
                   Reviewer Email:
                 </span>{" "}
                 {email}
@@ -101,7 +109,7 @@ const ReviewsDetails = () => {
           {/* Add to Watchlist */}
           <button
             onClick={handleWatchList}
-            className="btn btn-primary mt-6 w-full lg:w-auto"
+            className="btn bg-[#ADFF00] text-black md:font-bold mt-6 w-full lg:w-auto"
           >
             Add to WatchList
           </button>

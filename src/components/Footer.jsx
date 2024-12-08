@@ -24,7 +24,7 @@ const Footer = () => {
             <a className="link link-hover">Advertisement</a>
           </nav>
 
-          {/* Center Section */}
+          {/* Center  */}
           <nav className=" mx-auto lg:mx-0 py-4 md:py-0 ">
             <h6 className="text-xl text-[var(--highlight)]  ">Company</h6>
             <a className="link link-hover">About us</a>
@@ -33,7 +33,7 @@ const Footer = () => {
             <a className="link link-hover">Press kit</a>
           </nav>
 
-          {/* Right Section: Social Icons and Profile Link */}
+        
           <div className=" mx-auto lg:mx-0 ">
             <h6 className="text-xl text-[var(--highlight)]  ">Follow US</h6>
             <div className="flex space-x-4 my-2">
@@ -58,24 +58,18 @@ const Footer = () => {
               >
                 <i className="fab fa-linkedin fa-lg"></i>
               </Link>
-              {/* <Link
-                to="https://github.com/arman-miaa"
-                target="_blank"
-                className="text-gray-600 "
-              >
-                <i className="fab fa-github fa-lg "></i>
-              </Link> */}
+            
             </div>
           </div>
         </div>
       </footer>
 
       {/* Footer Bottom Section */}
-      {/* <div className="bg-[#414141ad] py-4 text-center text-main">
+      <div className="footer flex justify-center  bg-[#414141ad] py-4 text-center text-main">
         <p className="text-sm">
           &copy; {new Date().getFullYear()} Arman Mia. All rights reserved.
         </p>
-      </div> */}
+      </div>
     </div>
   );
 };

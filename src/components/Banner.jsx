@@ -47,13 +47,13 @@ const Banner = () => {
                   <i className="fas fa-clock text-green-400"></i>
                   <span>45 min match</span>
                 </span>
-                <span className="bg-red-600 text-xs px-3 py-1 rounded-full">
+                <span className="bg-[#ADFF00] text-black text-xs px-3 py-1 rounded-full">
                   4K
                 </span>
               </div>
 
               {/* Description */}
-              <p className="mt-4 text-base md:text-lg max-w-2xl text-gray-300 drop-shadow">
+              <p className="mt-4 text-base md:text-lg max-w-2xl text-white md:font-bold drop-shadow">
                 Dive into the intense battlegrounds of PUBG, where strategy,
                 precision, and survival instincts determine the ultimate
                 champion. Fight, loot, and dominate in this high-octane action
@@ -63,7 +63,7 @@ const Banner = () => {
               {/* Button */}
               <button
                 onClick={handleScrollToTop}
-                className="mt-6 bg-yellow-500 px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-yellow-600 transition duration-300"
+                className="mt-6 bg-[#ADFF00] text-black hover:bg-[#496905d9] px-8 py-3 rounded-lg font-semibold shadow-lg  transition duration-300"
               >
                 See More
               </button>
@@ -99,18 +99,18 @@ const Banner = () => {
                   <i className="fas fa-clock"></i>{" "}
                   <span>30-40 mins per match</span>
                 </span>
-                <span className="bg-blue-600 text-sm px-2 py-1 rounded">
+                <span className="bg-[#ADFF00] text-black text-sm px-2 py-1 rounded">
                   PC
                 </span>
               </div>
-              <p className="mt-4 text-lg max-w-2xl">
+              <p className="mt-4 text-lg max-w-2xl font-bold">
                 Valorant, the highly competitive tactical shooter, brings
                 strategy, precision, and fast-paced action together in 5v5
                 matches. Test your skills with unique agents and dynamic maps.
               </p>
               <button
                 onClick={handleScrollToTop}
-                className="mt-6 bg-blue-600 px-6 py-2 rounded text-white hover:bg-blue-700"
+                className="mt-6 bg-[#ADFF00] text-black hover:bg-[#496905d9] px-8 py-3 rounded-lg font-semibold shadow-lg  transition duration-300"
               >
                 See More
               </button>
@@ -144,18 +144,18 @@ const Banner = () => {
                   <i className="fas fa-clock"></i>{" "}
                   <span>15-20 mins per match</span>
                 </span>
-                <span className="bg-yellow-500 text-sm px-2 py-1 rounded">
+                <span className="bg-[#ADFF00] text-black text-sm px-2 py-1 rounded">
                   Mobile
                 </span>
               </div>
-              <p className="mt-4 text-lg max-w-2xl">
+              <p className="mt-4 text-lg max-w-2xl md:font-bold">
                 Free Fire, a fast-paced battle royale game, pushes players into
                 an action-packed survival mode with quick matches and strategic
                 gameplay, offering endless excitement.
               </p>
               <button
                 onClick={handleScrollToTop}
-                className="mt-6 bg-yellow-500 px-6 py-2 rounded text-white hover:bg-yellow-600"
+                className="mt-6 bg-[#ADFF00] text-black hover:bg-[#496905d9] px-8 py-3 rounded-lg font-semibold shadow-lg  transition duration-300"
               >
                 See More
               </button>
