@@ -1,24 +1,21 @@
 import { useEffect, useState } from "react";
 
 const NewGames = () => {
-  const [newGames, setNewGames] = useState([]); // Initialize as an empty array
-  const [loading, setLoading] = useState(true); // Add a loading state
-  // console.log(newGames[0].image);
+  const [newGames, setNewGames] = useState([]); 
+  const [loading, setLoading] = useState(true); 
   useEffect(() => {
     fetch("https://ph-assignment10-server-lilac.vercel.app/newgame")
       .then((res) => res.json())
       .then((data) => {
         setNewGames(data);
-        setLoading(false); // Data has been loaded
+        setLoading(false); 
       })
       .catch((error) => {
-        console.log("ERROR", error);
-        setLoading(false); // Stop loading even on error
+        setLoading(false); 
       });
   }, []);
 
   const handlePlayGame = (link) => {
-    //    console.log(link);
     window.open(link, "_blank");
   };
 

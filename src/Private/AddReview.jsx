@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet";
 
 const AddReview = () => {
   const { users } = useContext(AuthContext);
-  // console.log(users.displayName);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -17,7 +16,6 @@ const AddReview = () => {
     const genres = form.genres.value;
     const email = form.email.value;
     const name = form.name.value;
-    // console.log(image, title, review, rating, year, genres, email, name);
 
     const newReview = {
       image,
@@ -30,7 +28,6 @@ const AddReview = () => {
       name,
       userId: users?.uid,
     };
-    console.log(newReview);
 
     fetch("https://ph-assignment10-server-lilac.vercel.app/reviews", {
       method: "POST",
@@ -41,11 +38,9 @@ const AddReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         toast.success("review added successfully");
       })
       .catch((error) => {
-        console.log(error);
         toast.error("failed to add review");
       });
   };

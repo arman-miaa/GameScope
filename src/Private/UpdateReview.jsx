@@ -4,11 +4,9 @@ import Swal from "sweetalert2";
 
 const UpdateReview = () => {
   const reviewfoUpdate = useLoaderData();
-  // console.log(review);
   const { _id, image, title, review, rating, year, genres, email, name } =
     reviewfoUpdate;
 
-  //   console.log(_id,image, title, review, rating, year, genres, email, name);
   const navigate = useNavigate();
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -32,8 +30,6 @@ const UpdateReview = () => {
       email,
       name,
     };
-    console.log(updateReview);
-    // console.log(id);
 
     fetch(
       `https://ph-assignment10-server-lilac.vercel.app/updateReview/${_id}`,
@@ -47,7 +43,6 @@ const UpdateReview = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         Swal.fire({
           position: "center",
           icon: "success",
@@ -58,7 +53,6 @@ const UpdateReview = () => {
         navigate("/myReviews");
       })
       .catch((error) => {
-        console.log("update error", error);
       });
   };
 

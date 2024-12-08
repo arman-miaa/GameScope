@@ -16,7 +16,6 @@ const HighestRatedReviews = () => {
         setLoading(false); 
       })
       .catch((error) => {
-        console.log("ERROR", error);
         setLoading(false); 
       });
   }, []);

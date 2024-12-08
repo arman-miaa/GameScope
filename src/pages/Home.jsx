@@ -2,9 +2,7 @@ import { Helmet } from "react-helmet";
 import Banner from "../components/Banner";
 import Contact from "../components/Contact";
 import HighestRatedReviews from "../components/HighestRatedReviews ";
-import NewGames from "../components/NewGames";
 import PopularGames from "../components/PopularGames";
-import ReviewsVideoSection from "../components/ReviewsVideoSection ";
 
 
 const Home = () => {
@@ -19,7 +17,6 @@ const Home = () => {
           {/* <NewGames></NewGames> */}
           <PopularGames></PopularGames>
           <Contact></Contact>
-          {/* <ReviewsVideoSection></ReviewsVideoSection> */}
         </div>
       </div>
     );

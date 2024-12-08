@@ -9,7 +9,6 @@ const MyReviews = () => {
   const { users } = useContext(AuthContext);
   const [myReviews, setMyReviews] = useState([]);
   const [loader, setLoader] = useState(true);
-  // console.log(myReviews);
   useEffect(() => {
     fetch(
       `https://ph-assignment10-server-lilac.vercel.app/myreviews/${users?.email}`
@@ -26,7 +25,6 @@ const MyReviews = () => {
   }, [users?.email]);
 
   const handleRemoveReview = (id) => {
-    // console.log("remove clicked", id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -45,7 +43,6 @@ const MyReviews = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
@@ -62,9 +59,7 @@ const MyReviews = () => {
     });
   };
 
-  // const handleUpdateReview = (id) => {
-  //   console.log(id);
-  // };
+
 
   return (
     <section className="bg-[#1D1D1D] min-h-screen">

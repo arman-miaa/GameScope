@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet";
 
 const ReviewsDetails = () => {
   const { users } = useContext(AuthContext);
-  // console.log(users);
   const details = useLoaderData();
   const {
     image,
@@ -17,16 +16,13 @@ const ReviewsDetails = () => {
     email,
     name: reviewer,
   } = details;
-  // console.log(details);
 
   const loggedInUser = {
     name: `${users.displayName}`,
     email: `${users.email}`,
   };
-  // console.log(loggedInUser);
 
   const handleWatchList = () => {
-    // console.log(details);
     const watchlistData = {
       reviewId: details._id,
       title,
@@ -47,12 +43,10 @@ const ReviewsDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         toast.success("added watchlist successfully on database");
-        // console.log("added watchlist successfully", data);
       })
       .catch((error) => {
         toast.success("not added watchlist on database");
 
-        // console.log("not added watchlist on database", error);
       });
   };
 

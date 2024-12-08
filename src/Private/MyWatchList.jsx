@@ -8,10 +8,8 @@ const MyWatchList = () => {
   const { users } = useContext(AuthContext);
   const [watchLists, setWatchLists] = useState([]);
   const [loader, setLoader] = useState(true);
-  // console.log(watchLists);
 
   const email = users.email;
-  // console.log(email);
 
   useEffect(() => {
     fetch(
@@ -23,13 +21,11 @@ const MyWatchList = () => {
         setLoader(false);
       })
       .catch((err) => {
-        // console.error(err);
         setLoader(false);
       });
   }, []);
 
   const handleRemoveWatchList = (id) => {
-    console.log("remove clicked", id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -48,7 +44,6 @@ const MyWatchList = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",

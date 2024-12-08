@@ -10,11 +10,10 @@ const PopularGames = () => {
       .then((res) => res.json())
       .then((data) => {
         setPopulargames(data);
-        setLoading(false); // Data has been loaded
+        setLoading(false); 
       })
       .catch((error) => {
-        console.log("ERROR", error);
-        setLoading(false); // Stop loading even on error
+        setLoading(false); 
       });
   }, []);
 

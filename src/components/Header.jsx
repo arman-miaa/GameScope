@@ -4,6 +4,10 @@ import { NavLink } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline"; 
 import { useTheme } from "../provider/ThemeProvider ";
+import userIcon from "../assets/user-icon.jpg";
+
+
+
 
 const Header = () => {
   const { users, logOutUser } = useContext(AuthContext);
@@ -93,9 +97,11 @@ const { theme, toggleTheme } = useTheme();
               <img
                 data-tooltip-id="my-tooltip"
                 className="border-2 w-14 h-14 rounded-full"
-                src={users.photoURL}
-                alt=""
+                src={users?.photoURL || userIcon} // Add optional chaining to prevent errors if users is undefined
+                alt="User Avatar"
+                onError={(e) => (e.target.src = userIcon)} // Fallback if the image URL is broken
               />
+
               <Tooltip id="my-tooltip">
                 <p className="">{users.displayName}</p>
               </Tooltip>
