@@ -1,76 +1,61 @@
-# Discount PRO 🚀
+# 🎮 GameScope: A Game Review Application
 
-## Short Description  
-**Discount PRO** is a coupon-collecting application designed to help users discover and use discount coupons for various e-commerce stores in Bangladesh. The platform features responsive design, user authentication, and smooth navigation to enhance the user experience.
-
----
-
-## Technologies Used ✨
-- ⚛️ **React**: Core framework for building the application's UI and managing components.  
-- 🎨 **Tailwind CSS**: Utility-first CSS framework for responsive and efficient styling.  
-- 🌼 **DaisyUI**: Pre-designed UI components built on Tailwind CSS for accessible and modern design.  
-- 🔥 **Firebase**: Used for user authentication and hosting services.  
-- 🛣️ **React Router**: For navigating between different pages and protecting routes.  
-- ✨ **AOS (Animate on Scroll)**: Provides beautiful scroll-based animations for enhanced user experience.  
-- 🛠️ **Git**: Version control for tracking project development and collaboration.
+**GameScope** is a comprehensive platform designed for game enthusiasts to explore, review, and manage their favorite games. With a sleek interface and essential features, it aims to deliver a smooth and engaging user experience.
 
 ---
 
-## List of React Fundamental Concepts Used 📝  
-- **JSX (JavaScript XML)**: Combined HTML-like syntax with JavaScript for UI creation.  
-- **Components**: Divided the UI into modular and reusable components (e.g., Header, BrandsOnSell, TopBrands).  
-- **Props and State**: Passed data between components using props and managed dynamic states like user login or coupon selection.  
-- **Event Handling**: Managed user interactions (e.g., copying coupon codes, logging in, or logging out).  
-- **useEffect**: Used for side effects like animating components and fetching data.  
-- **React Router**: Implemented navigation and private routes for authenticated users.  
+## 📂 Server Repository
+
+- 💻 **Server Repo**: [GitHub Repository Link](https://github.com/arman-miaa/GameScope-Project-server)
 
 ---
 
-## Data Handling and Management 📦  
-- **JSON**: Stored brand and coupon data locally in a structured format.  
-- **Firebase**: Managed user authentication data and protected routes.  
-- **Environment Variables**: Secured sensitive configuration details like Firebase API keys.  
+## 🚀 Key Features
+
+- 🔐 **User Authentication**: Secure sign-up, login, and logout functionality using Firebase Authentication.
+- ✍️ **Game Reviews**: Add, update, delete, and manage your game reviews.
+- 📱 **Responsive Design**: Fully optimized for all devices using TailwindCSS.
+- 🌗 **Dark/Light Theme Toggle**: Switch between dark and light themes for a better browsing experience.
+- 🎯 **Watchlist Management**: Add and manage your favorite games in a personalized watchlist.
+- 🔒 **Private/Protected Routes**: Restrict access to certain routes based on user authentication.
+- 🔍 **Sorting & Filtering**: Quickly find and manage the games you're interested in using sorting and filtering options.
 
 ---
 
-## 5 Features of the Website/Project ⚙️  
-1. **Coupon Collection**:  
-   Browse and view coupons with detailed descriptions, conditions, and expiry dates.  
+## 🛠️ Technologies Used
 
-2. **User Authentication**:  
-   Secure login and registration via email/password or Google Sign-In.  
-
-3. **Scroll Animations**:  
-   Dynamic AOS-powered animations enhance the user experience.  
-
-4. **Responsive Design**:  
-   Fully optimized for desktop, tablet, and mobile devices.  
-
-5. **Protected Routes**:  
-   Only authenticated users can access certain pages, ensuring security and exclusivity.  
+- 💻 **Frontend**: React, React Router, Tailwind CSS
+- 🔐 **Authentication**: Firebase Authentication
+- 🗂️ **Data Storage**: Firebase Firestore / JSON (depending on implementation)
+- 📱 **Responsive Design**: Tailwind CSS
+- ⚙️ **State Management**: React Context API
 
 ---
 
-## Live Link 🌐  
+## 🌐 Live Links
 
-- Netlify Live Link: 👉 [https://discount-pro-project.netlify.app/](https://discount-pro-project.netlify.app/)  
+- 🌍 **Netlify Live Link**: 👉 [https://gamescope-project.netlify.app/](https://gamescope-project.netlify.app/)
 
 ---
 
 ## 📦 Dependencies Used
 
 ### Core Dependencies:
+
 - **React**: A library for building user interfaces.
 - **React-DOM**: React rendering library.
 - **React-Router-Dom**: For dynamic routing within the app.
 - **Firebase**: Authentication and backend services for user login and data management.
 - **React-Toastify**: For displaying toast notifications.
-- **AOS**: Animate On Scroll for smooth animations.
+- **Swiper**: For implementing the carousel/slider.
+- **React-Helmet**: For managing the document head.
 - **React-Icons**: Provides a set of commonly used icons.
 - **SweetAlert2**: For interactive alerts and confirmation dialogs.
 - **Match-Sorter**: Used for sorting arrays.
+- **Localforage**: For offline data storage.
 
 ### Dev Dependencies:
+
 - **TailwindCSS**: A utility-first CSS framework for creating modern designs.
 - **DaisyUI**: Component library built on top of TailwindCSS.
 - **Vite**: A fast build tool and development server.
@@ -84,8 +69,7 @@
 
 To get this project running locally, follow these steps:
 
-1. Clone the repository:
+1. Clone the repository, navigate to the project folder, install dependencies, and start the development server:
 
 ```bash
-git clone https://github.com/arman-miaa/Discount-PRO.git  && cd Discount-PRO
-&& npm run dev
+git clone https://github.com/arman-miaa/GameScope-Project-client.git && cd GameScope-Project-client && npm install && npm run dev
