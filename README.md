@@ -6,7 +6,7 @@
 
 ## 📂 Server Repository
 
-- 💻 **Server Repo**: [GitHub Repository Link](https://github.com/arman-miaa/GameScope-Project-server)
+- 💻 **Server Repo**: [GitHub Repository Link](https://github.com/arman-miaa/GameScope-Server)
 
 ---
 
